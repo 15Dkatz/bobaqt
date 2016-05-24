@@ -10,7 +10,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   var itemsRef = new Firebase("https://pardeez.firebaseio.com/items");
   return $firebaseArray(itemsRef);
 })
-
+.factory("Auth", function($firebaseAuth) {
+  var usersRef = new Firebase("https//pardeez.firebaseio.com/users");
+  return $firebaseAuth(usersRef);
+})
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
