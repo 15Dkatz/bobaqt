@@ -41,20 +41,40 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
-  $scope.login = function() {
-    Auth.$authWithOAuthRedirect("facebook").then(function(authData) {
-      // User successfully logged in
-    }).catch(function(error) {
-      if (error.code === "TRANSPORT_UNAVAILABLE") {
-        Auth.$authWithOAuthPopup("facebook").then(function(authData) {
-          // User successfully logged in. We can log to the console
-          // since we’re using a popup here
-          console.log(authData);
-        });
+
+  $scope.authData;
+  $scope.boolAuthed = false;
+
+  $scope.fblogin = function() {
+    var ref = new Firebase("https://pardeez.firebaseio.com");
+    ref.authWithOAuthPopup("facebook", function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
       } else {
-        // Another error occurred
-        console.log(error);
+        console.log("Authenticated successfully with payload:", authData);
+        $scope.authData = authData;
+        $scope.$apply(function() {
+          $scope.boolAuthed = true;
+        })
+
       }
     });
   };
+
+  $scope.gglogin = function() {
+    var ref = new Firebase("https://pardeez.firebaseio.com");
+    ref.authWithOAuthPopup("google", function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        $scope.authData = authData;
+        // $scope.boolAuthed = true;
+        $scope.$apply(function() {
+          $scope.boolAuthed = true;
+        })
+      }
+    });
+  }
+
 }]);
