@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 
-.controller('ListCtrl', ["$scope", "Items", function($scope, Items) {
+pardeezApp.controller('ListCtrl', ["$scope", "Items", function($scope, Items) {
   $scope.items = Items;
   $scope.addItem = function() {
     console.log("attempting to add");
@@ -15,9 +15,9 @@ angular.module('starter.controllers', [])
 
   $scope.testVar = "ZZYY";
 
-}])
+}]);
 
-.controller('ChatsCtrl', ["$scope", "Chats", "Items", function($scope, Chats, Items) {
+pardeezApp.controller('ChatsCtrl', ["$scope", "Chats", "Items", function($scope, Chats, Items) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -31,50 +31,11 @@ angular.module('starter.controllers', [])
     Chats.remove(chat);
   };
   $scope.testVar = "XXYY";
-}])
-
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('AccountCtrl', ["$scope", "Auth", function($scope, Auth) {
-  $scope.settings = {
-    enableFriends: true
-  };
-
-  $scope.authData;
-  $scope.boolAuthed = false;
-
-  $scope.fblogin = function() {
-    var ref = new Firebase("https://pardeez.firebaseio.com");
-    ref.authWithOAuthPopup("facebook", function(error, authData) {
-      if (error) {
-        console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-        $scope.authData = authData;
-        $scope.$apply(function() {
-          $scope.boolAuthed = true;
-        })
-
-      }
-    });
-  };
-
-  $scope.gglogin = function() {
-    var ref = new Firebase("https://pardeez.firebaseio.com");
-    ref.authWithOAuthPopup("google", function(error, authData) {
-      if (error) {
-        console.log("Login Failed!", error);
-      } else {
-        console.log("Authenticated successfully with payload:", authData);
-        $scope.authData = authData;
-        // $scope.boolAuthed = true;
-        $scope.$apply(function() {
-          $scope.boolAuthed = true;
-        })
-      }
-    });
-  }
-
 }]);
+
+
+
+pardeezApp.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+  $scope.chat = Chats.get($stateParams.chatId);
+});
+

@@ -5,16 +5,22 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase'])
-.factory("Items", function($firebaseArray) {
+var pardeezApp = angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'firebase']);
+
+
+
+pardeezApp.factory("Items", function($firebaseArray) {
   var itemsRef = new Firebase("https://pardeez.firebaseio.com/items");
   return $firebaseArray(itemsRef);
 })
-.factory("Auth", function($firebaseAuth) {
+pardeezApp.factory("Auth", function($firebaseAuth) {
   var usersRef = new Firebase("https//pardeez.firebaseio.com/users");
   return $firebaseAuth(usersRef);
 })
-.run(function($ionicPlatform) {
+
+
+
+pardeezApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -30,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+pardeezApp.config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
