@@ -4,7 +4,7 @@ pardeezApp.controller('AccountCtrl', ["$scope", "Auth", function($scope, Auth) {
   };
 
   $scope.authData;
-  $scope.boolAuthed = false;
+  $scope.authedBool = false;
 
   $scope.fblogin = function() {
     var ref = new Firebase("https://pardeez.firebaseio.com");
@@ -15,7 +15,7 @@ pardeezApp.controller('AccountCtrl', ["$scope", "Auth", function($scope, Auth) {
         console.log("Authenticated successfully with payload:", authData);
         $scope.authData = authData;
         $scope.$apply(function() {
-          $scope.boolAuthed = true;
+          $scope.authedBool = true;
         })
 
       }
@@ -30,9 +30,9 @@ pardeezApp.controller('AccountCtrl', ["$scope", "Auth", function($scope, Auth) {
       } else {
         console.log("Authenticated successfully with payload:", authData);
         $scope.authData = authData;
-        // $scope.boolAuthed = true;
+        // $scope.authedBool = true;
         $scope.$apply(function() {
-          $scope.boolAuthed = true;
+          $scope.authedBool = true;
         })
       }
     });
