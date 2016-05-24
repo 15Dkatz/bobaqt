@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('pardeezApp.controllers', [])
 
 
 pardeezApp.controller('ListCtrl', ["$scope", "Items", function($scope, Items) {
