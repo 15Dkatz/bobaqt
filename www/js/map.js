@@ -24,13 +24,14 @@ pardeezApp.controller('MapCtrl', ["$scope", "$rootScope", "$cordovaGeolocation",
     google.maps.event.addListenerOnce($scope.map, 'idle', function(){
       var marker = new google.maps.Marker({
           map: $scope.map,
-          animation: google.maps.Animation.DROP,
-          position: latLng,
+          // animation: google.maps.Animation.DROP,
+          icon: "img/location.png",
+          position: latLng
           // title:
       });      
      
       var infoWindow = new google.maps.InfoWindow({
-          content: "Here I am!"
+          content: "My Location"
       });
       google.maps.event.addListener(marker, 'click', function () {
           infoWindow.open($scope.map, marker);
@@ -55,11 +56,7 @@ pardeezApp.controller('MapCtrl', ["$scope", "$rootScope", "$cordovaGeolocation",
 
       // this can be html-ified 
       var content = title;
-      // {
-          // content: title
-      // });
       google.maps.event.addListener(marker, 'click', function() {
-          // infoWindow.open($scope.map, this);
           infoWindow.setContent(this.title)
           infoWindow.open($scope.map, this)
       });
