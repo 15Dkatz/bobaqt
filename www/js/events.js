@@ -1,5 +1,5 @@
-pardeezApp.controller('EventsCtrl', ["$scope", "$rootScope", "$ionicModal", "Events",  
-function($scope, $rootScope, $ionicModal, Events) {
+pardeezApp.controller('EventsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Events",  
+function($scope, $rootScope, $http, $filter, $ionicModal, Events) {
   $scope.events = Events;
 
   $scope.place = null;
@@ -21,10 +21,13 @@ function($scope, $rootScope, $ionicModal, Events) {
       event.owner = "anonymous";
     }
     if (event) {
-      console.log("place", place);
+      // console.log("place", place);
       event["location"] = place.name;
       event["address"] = place.formatted_address;
+      // definitely need more festive pictures
       event["icon"] = place.icon;
+      event["time"] = $filter('date')(new Date(event.time), "MM/dd/yyyy 'at' h:mma");
+
       // plenty of other options https://developers.google.com/maps/documentation/javascript/reference#PlaceResult
       // formatted_phone_number, 
       // icon
@@ -35,7 +38,6 @@ function($scope, $rootScope, $ionicModal, Events) {
   };
 
   $scope.openModal = function() {
-    // console.log("attempting to openModal");
     $scope.modal.show();
   };
 
@@ -62,6 +64,13 @@ function($scope, $rootScope, $ionicModal, Events) {
   $scope.testLocation = function(place) {
     console.log("place", place);
     console.log("name", place.name);
+  }
+  $scope.testTime = function(time) {
+    console.log("time", time, "type");
+    var _date = $filter('date')(new Date(time), "MM/dd/yyyy 'at' h:mma");
+    console.log("_date", _date);
+    // time.dateAsString = $filter('date')(item.date, "yyyy-MM-dd");
+
   }
 
 }]);
