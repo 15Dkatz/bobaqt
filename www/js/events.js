@@ -61,9 +61,49 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Events) {
     // Execute action
   });
 
+  //debugging methods
   $scope.testLocation = function(place) {
-    console.log("place", place);
+    console.log("place", place, "lat", place.geometry.location);
     console.log("name", place.name);
+
+    // var data = null;
+
+    // var xhr = new XMLHttpRequest();
+    // xhr.withCredentials = true;
+
+    // xhr.addEventListener("readystatechange", function () {
+    //   if (this.readyState === 4) {
+    //     console.log(this.responseText);
+    //   }
+    // });
+
+    // xhr.open("GET", "https://maps.googleapis.com/maps/api/place/details/json?reference=CmRYAAAAciqGsTRX1mXRvuXSH2ErwW-jCINE1aLiwP64MCWDN5vkXvXoQGPKldMfmdGyqWSpm7BEYCgDm-iv7Kc2PF7QA7brMAwBbAcqMr5i1f4PwTpaovIZjysCEZTry8Ez30wpEhCNCXpynextCld2EBsDkRKsGhSLayuRyFsex6JA6NPh9dyupoTH3g&key=AIzaSyAK7MHn7JDwSNnpcz4zfIaiJtUL8WuJdgE");
+    // xhr.setRequestHeader("authorization", "Bearer SZRBEN2CGEUPT57YVMXP");
+    // xhr.setRequestHeader("cache-control", "no-cache");
+    // xhr.setRequestHeader("postman-token", "1086038b-8c46-6b0d-b42d-d6c971ef89c9");
+
+    // xhr.send(data);
+    $http({
+          "async": true,
+          "crossDomain": true,
+          "url": "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place.place_id + "&key=AIzaSyAK7MHn7JDwSNnpcz4zfIaiJtUL8WuJdgE",
+          "method": "GET",
+          "headers": {
+            "authorization": "Bearer SZRBEN2CGEUPT57YVMXP"
+          }
+        }).then(function successCallback(response) {
+            // this callback will be called asynchronously
+            // when the response is available
+            console.log("response", response);
+
+            // $scope.hackathons = response;
+
+            console.log("success!");
+          }, function errorCallback(response) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+        });
+
   }
   $scope.testTime = function(time) {
     console.log("time", time, "type");
