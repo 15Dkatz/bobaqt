@@ -2,6 +2,9 @@ pardeezApp.controller('EventsCtrl', ["$scope", "$rootScope", "$ionicModal", "Eve
 function($scope, $rootScope, $ionicModal, Events) {
   $scope.events = Events;
 
+  $scope.place = null;
+
+
   $ionicModal.fromTemplateUrl('../templates/addEvent-modal.html', {
       scope: $scope,
       animation: 'slide-in-up',
@@ -10,14 +13,21 @@ function($scope, $rootScope, $ionicModal, Events) {
    });
 
 
-  $scope.addEvent = function(event) {
+  $scope.addEvent = function(event, place) {
     // console.log($rootScope.displayName, "displayName");
     if ($rootScope.displayName) {
       event.owner = $rootScope.displayName;
     } else {
-      event.owner = "anonymmous";
+      event.owner = "anonymous";
     }
     if (event) {
+      console.log("place", place);
+      event["location"] = place.name;
+      event["address"] = place.formatted_address;
+      event["icon"] = place.icon;
+      // plenty of other options https://developers.google.com/maps/documentation/javascript/reference#PlaceResult
+      // formatted_phone_number, 
+      // icon
       $scope.events.$add(event);
     }
     $scope.modal.hide();
@@ -48,5 +58,10 @@ function($scope, $rootScope, $ionicModal, Events) {
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+
+  $scope.testLocation = function(place) {
+    console.log("place", place);
+    console.log("name", place.name);
+  }
 
 }]);

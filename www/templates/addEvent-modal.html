@@ -16,13 +16,16 @@
 	  </label>
 	  <label class="item item-input">
 	  	<!-- use Google maps location API -->
-	    <input type="text" placeholder="Location" ng-model="event.location">
+	    <input type="text" placeholder="Location" ng-model="place"  g-places-autocomplete>
 	  </label>
 	  <label class="item item-input">
 	    <textarea placeholder="Additional Info (optional)" ng-model="event.text"></textarea>
 	  </label>
+	  	<!-- <pre>{{place | json}}</pre> -->
 	  	<div class="button-padding">	
-	  		<button class="button button-block button-balanced button-padding" ng-click="addEvent(event)">
+	  		<button class="button button-block button-balanced button-padding" 
+	  		ng-click="addEvent(event, place)"
+	  		>
 		  		Submit
 				</button>
 			</div>
