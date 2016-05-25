@@ -21,7 +21,26 @@
         </button> -->
       </div>
       <ion-item ng-repeat="event in events | filter:search">
-        {{event.title}}
+        <div class="list card">
+          <!-- put something in item-avatar for pictures -->
+          <!-- <div class="item item-avatar"> -->
+          <div class="item">
+            <h2 class="center">{{event.title}}</h2>
+            <p>{{event.owner}}</p>
+          </div>
+
+          <div class="item item-body">
+            <!-- <img class="full-image" src="delorean.jpg"> -->
+            <p>{{event.time}}</p>
+            <p>{{event.location}}</p>
+            <p>
+              {{event.text}}
+            </p>
+              <!-- <a href="#" class="subdued">1 Like</a> -->
+              <!-- <a href="#" class="subdued">5 Comments</a> -->
+          </div>
+        </div>
+
       </ion-item>
     </ion-list>
   </ion-content>
