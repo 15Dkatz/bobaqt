@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var pardeezApp = angular.module('pardeezApp', ['ionic', 'pardeezApp.controllers', 'pardeezApp.services', 'firebase', 'google.places']);
+var pardeezApp = angular.module('pardeezApp', ['ionic', 'pardeezApp.controllers', 'pardeezApp.services', 'firebase', 'google.places', 'ngCordova']);
 
 pardeezApp.factory("Events", function($firebaseArray) {
   var eventsRef = new Firebase("https://pardeez.firebaseio.com/events");
