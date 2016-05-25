@@ -25,16 +25,17 @@ pardeezApp.controller('MapCtrl', ["$scope", "$rootScope", "$cordovaGeolocation",
       var marker = new google.maps.Marker({
           map: $scope.map,
           animation: google.maps.Animation.DROP,
-          position: latLng
+          position: latLng,
+          // title:
       });      
      
       var infoWindow = new google.maps.InfoWindow({
           content: "Here I am!"
       });
-     
       google.maps.event.addListener(marker, 'click', function () {
           infoWindow.open($scope.map, marker);
       });
+      
     });
 
     for (var i=0; i<$scope.events.length; i++) {
@@ -48,6 +49,19 @@ pardeezApp.controller('MapCtrl', ["$scope", "$rootScope", "$cordovaGeolocation",
         position: eveLatLng,
         map: $scope.map,
         title: title
+      });
+
+      var infoWindow = new google.maps.InfoWindow();
+
+      // this can be html-ified 
+      var content = title;
+      // {
+          // content: title
+      // });
+      google.maps.event.addListener(marker, 'click', function() {
+          // infoWindow.open($scope.map, this);
+          infoWindow.setContent(this.title)
+          infoWindow.open($scope.map, this)
       });
     }   
  
