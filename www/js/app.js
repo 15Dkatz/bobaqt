@@ -5,9 +5,16 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var pardeezApp = angular.module('pardeezApp', ['ionic', 'pardeezApp.controllers', 'pardeezApp.services', 'firebase', 'google.places', 'ngCordova']);
+var pardeezApp = angular.module('pardeezApp', ['ionic', 'pardeezApp.controllers', 'pardeezApp.services', 'firebase', 'google.places', 'ngCordova'])
+.constant('SERVER', {
+    //url: 'https://myextsite.com/api/public/index.php/v1'
+    url: "https://maps.googleapis.com/maps/api/"
+})
 
-pardeezApp.factory("Events", function($firebaseArray) {
+// https://maps.googleapis.com/maps/api/place/details/json?
+// ;
+
+.factory("Events", function($firebaseArray) {
   var eventsRef = new Firebase("https://pardeez.firebaseio.com/events");
   return $firebaseArray(eventsRef);
 })

@@ -11,7 +11,7 @@
 	    <input type="text" placeholder="Title" ng-model="event.title">
 	  </label>
 	  <label class="item item-input">
-	    <input type="datetime-local" placeholder="Date and Time" ng-model="event.time">
+	    <input type="datetime-local" placeholder="Date and Time" ng-model="time">
 	  </label>
 	  <label class="item item-input">
 	  	<!-- use Google maps location API -->
@@ -26,10 +26,10 @@
 	  		ng-click="addEvent(event, place, time)">
 		  		Submit
 				</button>
-				<!-- <button class="button button-block button-balanced button-padding" 
-	  		ng-click="testLocation(place)">
-		  		Submit
-				</button> -->
+				<button class="button button-block button-balanced button-padding" 
+	  		ng-click="testLocation(place, time)">
+		  		Test Submit
+				</button>
 			</div>
 		</div>
    </ion-content>
