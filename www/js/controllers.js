@@ -39,3 +39,9 @@ pardeezApp.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 });
 
+
+
+
+// goal using the authenticated userID hashcode
+// create a local events 
+

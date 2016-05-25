@@ -1,0 +1,14 @@
+<ion-view view-title="Events"> 
+  <ion-content>
+    <!-- <ion-header-bar class=""> -->
+      <!-- <h1 class="title">{{testVar}} Firebase-synchronized Items</h1> -->
+      <button class="button button-icon ion-plus" ng-click="addEvent()">
+      </button>
+    <!-- </ion-header-bar> -->
+    <ion-list>
+      <ion-item ng-repeat="event in events">
+        {{event.title}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,4 +1,4 @@
-pardeezApp.controller('AccountCtrl', ["$scope", "Auth", function($scope, Auth) {
+pardeezApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", function($scope, $rootScope, Auth) {
   $scope.settings = {
     enableFriends: true
   };
@@ -14,6 +14,8 @@ pardeezApp.controller('AccountCtrl', ["$scope", "Auth", function($scope, Auth) {
       } else {
         console.log("Authenticated successfully with payload:", authData);
         $scope.authData = authData;
+        $rootScope.authData = authData;
+        $rootScope.displayName = authData.facebook.displayName;
         $scope.$apply(function() {
           $scope.authedBool = true;
         })
@@ -30,6 +32,8 @@ pardeezApp.controller('AccountCtrl', ["$scope", "Auth", function($scope, Auth) {
       } else {
         console.log("Authenticated successfully with payload:", authData);
         $scope.authData = authData;
+        $rootScope.authData = authData;
+        $rootScope.displayName = authData.google.displayName;
         // $scope.authedBool = true;
         $scope.$apply(function() {
           $scope.authedBool = true;

@@ -9,9 +9,13 @@ var pardeezApp = angular.module('pardeezApp', ['ionic', 'pardeezApp.controllers'
 
 
 
-pardeezApp.factory("Items", function($firebaseArray) {
-  var itemsRef = new Firebase("https://pardeez.firebaseio.com/items");
-  return $firebaseArray(itemsRef);
+// pardeezApp.factory("Items", function($firebaseArray) {
+//   var itemsRef = new Firebase("https://pardeez.firebaseio.com/items");
+//   return $firebaseArray(itemsRef);
+// })
+pardeezApp.factory("Events", function($firebaseArray) {
+  var eventsRef = new Firebase("https://pardeez.firebaseio.com/events");
+  return $firebaseArray(eventsRef);
 })
 pardeezApp.factory("Auth", function($firebaseAuth) {
   var usersRef = new Firebase("https//pardeez.firebaseio.com/users");
@@ -53,12 +57,12 @@ pardeezApp.config(function($stateProvider, $urlRouterProvider) {
 
   // Each tab has its own nav history stack:
 
-  .state('tab.list', {
-    url: '/list',
+  .state('tab.events', {
+    url: '/events',
     views: {
-      'tab-list': {
-        templateUrl: 'templates/tab-list.html',
-        controller: 'ListCtrl'
+      'tab-events': {
+        templateUrl: 'templates/tab-events.html',
+        controller: 'EventsCtrl'
       }
     }
   })
@@ -93,6 +97,6 @@ pardeezApp.config(function($stateProvider, $urlRouterProvider) {
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/list');
+  $urlRouterProvider.otherwise('/tab/account');
 
 });

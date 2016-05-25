@@ -3,7 +3,7 @@
 
     <ion-list>
       <ion-item>
-        {{testVar}} a
+        {{testVar}} a {{authData.google.displayName}} {{authData.facebook.displayName}}
       </ion-item>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <img ng-src="{{chat.face}}">
