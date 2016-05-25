@@ -1,12 +1,26 @@
-<ion-view view-title="Events"> 
+<ion-view view-title="Events">
+   <!-- SearchBar and + button in nav -->
+  <ion-nav-bar class="bar-balanced">
+
+      <!-- <ion-nav-buttons side="right">
+        <button class="button button-icon ion-plus" ng-click="addEvent()">
+        </button>
+      </ion-nav-buttons> -->
+  </ion-nav-bar>
+
+
+    </ion-nav-buttons>
   <ion-content>
-    <!-- <ion-header-bar class=""> -->
-      <!-- <h1 class="title">{{testVar}} Firebase-synchronized Items</h1> -->
-      <button class="button button-icon ion-plus" ng-click="addEvent()">
-      </button>
-    <!-- </ion-header-bar> -->
     <ion-list>
-      <ion-item ng-repeat="event in events">
+      <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+          <i class="icon ion-ios-search placeholder-icon"></i>
+          <input type="search" placeholder="Search" ng-model="search">
+        </label>
+        <button class="button button-icon ion-plus" ng-click="addEvent()">
+        </button>
+      </div>
+      <ion-item ng-repeat="event in events | filter:search">
         {{event.title}}
       </ion-item>
     </ion-list>
