@@ -1,31 +1,19 @@
 <ion-view view-title="Account">
   <ion-content>
-    <div ng-hide="authedBool" class="card" ng-click="fblogin()">
-	  <button class="item">
-	  Sign in with Facebook
-	  </button>
-	</div>
-	<div ng-hide="authedBool" class="card" ng-click="gglogin()">
-	  <button class="item">
-	  Sign In with Google
-	  </button>
-	</div>
-	<!-- fix name show -->
-	<div class="card" ng-hide="!authedBool">
-	  <div class="item item-text-wrap">
-	    Hello {{authData.facebook.displayName}}{{authData.google.displayName}}!
-	  </div>
-	</div>
+  	<div class="card">
+	    <ion-list ng-hide="authedBool" class="list">
+			 	<ion-item class="item" ng-click="fblogin()">
+		 			Sign in with Facebook
+		  	</ion-item>
+		  	<ion-item class="item" ng-click="gglogin()">
+		  		Sign In with Google
+		  	</ion-item>
+			</ion-list>
+		</div>
+		<div class="card" ng-hide="!authedBool">
+	  	<div class="item item-text-wrap">
+	    	Hello {{authData.facebook.displayName}}{{authData.google.displayName}}!
+	  	</div>
+		</div>
   </ion-content>
 </ion-view>
-
-
-
-<!-- var ref = new Firebase("https://<YOUR-FIREBASE-APP>.firebaseio.com");
-ref.authWithOAuthPopup("google", function(error, authData) {
-  if (error) {
-    console.log("Login Failed!", error);
-  } else {
-    console.log("Authenticated successfully with payload:", authData);
-  }
-}); -->

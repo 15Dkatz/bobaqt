@@ -1,32 +1,31 @@
-pardeezApp.controller('EventsCtrl', ["$scope", "$rootScope", "Events", function($scope, $rootScope, Events) {
+pardeezApp.controller('EventsCtrl', ["$scope", "$rootScope", "$ionicModal", "Events",  
+function($scope, $rootScope, $ionicModal, Events) {
   $scope.events = Events;
+
+  $ionicModal.fromTemplateUrl('templates/addEvent-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function(modal) {
+    $scope.modal = modal;
+  })
 
   $scope.addEvent = function() {
     console.log($rootScope.displayName, "displayName");
-    var title = prompt("What is the title of your event?");
-    if (title) {
-      $scope.events.$add({
-        "title": title
-      });
-    }
+    // var title = prompt("What is the title of your event?");
+    // if (title) {
+    //   $scope.events.$add({
+    //     "title": title
+    //   });
+    // }
+    $scope.modal.show();
   };
 
+  $scope.openModal = function() {
+    console.log("attempting to openModal");
+    $scope.modal.show();
+  };
+
+  // cancel button to close modal
+  
+
 }]);
-
-
-
-// pardeezApp.controller('ListCtrl', ["$scope", "Items", function($scope, Items) {
-//   $scope.items = Items;
-//   $scope.addItem = function() {
-//     console.log("attempting to add");
-//     var name = prompt("What do you need to buy?");
-//     if (name) {
-//       $scope.items.$add({
-//         "name": name
-//       });
-//     }
-//   };
-
-//   $scope.testVar = "ZZYY";
-
-// }]);
