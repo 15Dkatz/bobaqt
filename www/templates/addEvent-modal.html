@@ -11,16 +11,16 @@
 	    <input type="text" placeholder="Title" ng-model="event.title">
 	  </label>
 	  <label class="item item-input">
-	    <input type="text" placeholder="When" ng-model="event.date">
+	    <input type="text" placeholder="When... install datepicker" ng-model="event.date">
 	  </label>
 	  <label class="item item-input">
-	    <input type="text" placeholder="Where" ng-model="event.location">
+	    <input type="text" placeholder="Where... use Google maps location API" ng-model="event.location">
 	  </label>
 	  <label class="item item-input">
 	    <textarea placeholder="Anything you would like to say..." ng-model="event.text"></textarea>
 	  </label>
 	  	<div class="button-padding">	
-	  		<button class="button button-block button-balanced button-padding">
+	  		<button class="button button-block button-balanced button-padding" ng-click="addEvent(event)">
 		  		Submit
 				</button>
 			</div>

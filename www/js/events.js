@@ -10,15 +10,18 @@ function($scope, $rootScope, $ionicModal, Events) {
    });
 
 
-  $scope.addEvent = function() {
-    console.log($rootScope.displayName, "displayName");
-    // var title = prompt("What is the title of your event?");
-    // if (title) {
-    //   $scope.events.$add({
-    //     "title": title
-    //   });
-    // }
-    $scope.modal.show();
+  $scope.addEvent = function(event) {
+    // console.log($rootScope.displayName, "displayName");
+    if ($rootScope.displayName) {
+      event.owner = $rootScope.displayName;
+    } else {
+      event.owner = "anonymmous";
+    }
+    if (event) {
+      $scope.events.$add(event);
+    }
+    $scope.modal.hide();
+    console.log("event", event);
   };
 
   $scope.openModal = function() {
@@ -28,7 +31,7 @@ function($scope, $rootScope, $ionicModal, Events) {
 
   // cancel button to close modal
   $scope.closeModal = function() {
-      $scope.modal.hide();
+    $scope.modal.hide();
   };
 
   //Cleanup the modal when we're done with it!
