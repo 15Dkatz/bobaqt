@@ -1,4 +1,7 @@
 /* Empty. Add your own CSS if you like */
-/*.searchBar {
-	width: 120%;
-}*/
+
+
+.button-padding {
+	padding-right: 2%;
+	padding-left: 2%;
+}
