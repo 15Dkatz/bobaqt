@@ -1,10 +1,10 @@
-bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items",
-function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
+bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$ionicSlideBoxDelegate",
+function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxDelegate) {
 
   $scope.cities;
   $scope.items = Items;
 
-  $http.get('../json/shops.json')
+  $http.get('./json/shops.json')
   .then(function(res){
     $scope.cities = res.data;                
   });
@@ -72,16 +72,6 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
     else if (option=='setItem') {
       //the selectedShop actually with all the selection - checks on flavors, toppings, sweetness, etc.
       $scope.scWithItems = selectedCity;
-      // $scope.setItem.shop = $scope.scWithItems.name;
-      // $scope.setItem.address = $scope.scWithItems.address;
-
-      // for (var s=0; s<$scope.scWithItems.menu.length; s=0) {
-      //   var section = $scope.scWithItems.menu[s].options;
-      //   $scope.setItem.
-      // }
-
-
-
       console.log("sc", $scope.scWithItems);
       $scope.modalSetItem.show();
     }
@@ -104,6 +94,13 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
     }
   };
 
+  var closeAllModals = function() {
+    $scope.modalCity.hide();
+    $scope.modalShop.hide();
+    $scope.modalItem.hide();
+    $scope.modalSetItem.hide();    
+  }
+
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
     $scope.modalCity.remove();
@@ -124,9 +121,36 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
 
 
   $scope.addItem = function(item) {
-    if (item) {
-      $scope.events.$add(item);
+    if ($rootScope.displayName) {
+      item.displayName = $rootScope.displayName;
+    } else {
+      item.displayName = "anonymous";
     }
+
+    if (item) {
+      $scope.items.$add(item);
+    }
+    closeAllModals();
   };
 
+  $scope.options = {
+    loop: false,
+    effect: 'fade',
+    speed: 500,
+  }
+
+  $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
+    // data.slider is the instance of Swiper
+    $scope.slider = data.slider;
+  });
+
+  $scope.$on("$ionicSlides.slideChangeStart", function(event, data){
+    console.log('Slide change is beginning');
+  });
+
+  $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
+    // note: the indexes are 0-based
+    $scope.activeIndex = data.activeIndex;
+    $scope.previousIndex = data.previousIndex;
+  });
 }]);

@@ -1,9 +1,8 @@
 <ion-modal-view>
    <ion-header-bar class="bar-calm">
-      <h1 class = "title bar-calm"></h1>
+      <h1 class = "title bar-calm">{{scWithItems.name}}</h1>
       <button class = "button button-icon icon-left ion-ios-close"
          ng-click = "closeModal('setItem')">
-           {{scWithItems.name}}
          </button>
    </ion-header-bar>
 	
@@ -23,16 +22,16 @@
         <ion-item ng-repeat="item in option.options | filter:{checked:true}">
           {{item.name}}
         </ion-item>
+      </ion-list>
         <label class="item item-input">
           <textarea placeholder="Anything you'd like to say?" ng-model="scWithItems.comments"></textarea>
         </label>
-      </ion-list>
     </div>
     
    </ion-content>
     <div class="submitBtn">
       <a class="content balanced">
-        <i class="ion-forward" ng-click="testButton(scWithItems)"> </i>
+       <!--  <i class="ion-forward" ng-click="testButton(scWithItems)"> </i> -->
         <i class="ion-forward" ng-click="addItem(scWithItems)"> </i>
       </a>
     </div>
