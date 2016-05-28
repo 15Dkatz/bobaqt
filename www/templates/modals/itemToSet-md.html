@@ -1,0 +1,39 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-calm">
+      <h1 class = "title bar-calm"></h1>
+      <button class = "button button-icon icon-left ion-ios-close"
+         ng-click = "closeModal('setItem')">
+           {{scWithItems.name}}
+         </button>
+   </ion-header-bar>
+	
+   <ion-content>
+    <div class="list">
+      <div class="bar bar-header item-input-inset item-divider">
+        {{scWithItems.name}}
+      </div>
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">Name your awesome boba drink!</span>
+        <input type="text" placeholder="" ng-model="scWithItems.finalName">
+      </label>
+      <ion-list ng-repeat="option in scWithItems.menu">
+        <div class="bar bar-header item-input-inset item-divider">
+          {{option.name}}
+        </div>
+        <ion-item ng-repeat="item in option.options | filter:{checked:true}">
+          {{item.name}}
+        </ion-item>
+        <label class="item item-input">
+          <textarea placeholder="Anything you'd like to say?" ng-model="scWithItems.comments"></textarea>
+        </label>
+      </ion-list>
+    </div>
+    
+   </ion-content>
+    <div class="submitBtn">
+      <a class="content balanced">
+        <i class="ion-forward" ng-click="testButton(scWithItems)"> </i>
+        <i class="ion-forward" ng-click="addItem(scWithItems)"> </i>
+      </a>
+    </div>
+</ion-modal-view>

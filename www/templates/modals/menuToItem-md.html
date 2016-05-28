@@ -6,10 +6,9 @@
    </ion-header-bar>
 	
    <ion-content>
+      
 		<ion-list class="list" ng-repeat="option in selectedShop.menu">
-     <!--  <div class="item item-divider">
-        {{option.name}}
-      </div> -->
+      
 			<div class="bar bar-header item-input-inset item-divider">
 		        <label class="item-input-wrapper">
 		          <i class="icon ion-ios-search placeholder-icon"></i>
@@ -17,9 +16,26 @@
 		        </label>
 			</div>
       
-      	<ion-radio ng-repeat="item in option.options | filter:search">
-      		{{item}}
-      	</ion-radio>
+    	<ion-checkbox 
+        class = "item-checkbox-right checkbox-balanced"
+        ng-repeat="item in option.options | filter:search"
+        ng-model="item.checked" 
+        ng-checked="item.checked"
+      >
+    		{{item.name}}
+    	</ion-checkbox>
+      <!-- <button class="" ng-click="testButton(option)">
+        Test Button
+      </button> -->
 		</ion-list>
+    
    </ion-content>
+   <!-- <div class="button button-block button-balanced item item-divider ion-forward submitBtn" ng-click="testButton(selectedShop.menu)">
+    </div> -->
+    <div class="submitBtn">
+      <a class="content balanced">
+        <!-- <i class="ion-forward" ng-click="testButton(selectedShop)"> </i> -->
+        <i class="ion-forward" ng-click="openModal('setItem', selectedShop)"> </i>
+      </a>
+    </div>
 </ion-modal-view>

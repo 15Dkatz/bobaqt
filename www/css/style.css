@@ -28,3 +28,11 @@
 	-webkit-filter: opacity(.7);
   	filter: opacity(.7);
 }
+
+.submitBtn {
+	position: fixed;
+	bottom: 10px; /* Adjust height */
+	right: 6%; /* Adjust position */
+	font-size: 50px;
+	color: #33CD5F;
+}

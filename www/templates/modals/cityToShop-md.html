@@ -16,7 +16,7 @@
         	<ion-radio 
             ng-repeat="city in cities | filter:searchCity"
             ng-model="cityData.selected" ng-value="city"
-            ng-click="openModal('shop', cityData.selected.shops)"
+            ng-click="openModal('shop', cityData.selected)"
           >
         		{{city.name}}
         	</ion-radio>

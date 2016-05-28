@@ -9,14 +9,6 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
     $scope.cities = res.data;                
   });
 
-  
-
-  $scope.testButton = function() {
-    console.log("testing the cities object", $scope.cities);
-  }
-
-
-
   $ionicModal.fromTemplateUrl('./templates/modals/cityToShop-md.html', {
       scope: $scope,
       animation: 'slide-in-up',
@@ -37,6 +29,12 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
   }).then(function(modal) {
       $scope.modalItem = modal;
   });
+  $ionicModal.fromTemplateUrl('./templates/modals/itemToSet-md.html', {
+      scope: $scope,
+      animation: 'slide-in-up',
+  }).then(function(modal) {
+      $scope.modalSetItem = modal;
+  });
 
 
   $scope.cityData = {
@@ -47,9 +45,15 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
       selected: 'TPumps'
   }
 
+  $scope.menuData = {
+      selected: ''
+  }
+
   $scope.testButton = function(selected) {
     console.log("selected", selected);
   }
+
+  $scope.setItem = {};
 
   $scope.openModal = function(option, selectedCity, selectedShop) {
     if (option=='city') {
@@ -64,21 +68,40 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
       console.log("selectedShop", selectedShop);
       $scope.selectedShop = selectedShop;
       $scope.modalItem.show();
-    }    
+    }
+    else if (option=='setItem') {
+      //the selectedShop actually with all the selection - checks on flavors, toppings, sweetness, etc.
+      $scope.scWithItems = selectedCity;
+      // $scope.setItem.shop = $scope.scWithItems.name;
+      // $scope.setItem.address = $scope.scWithItems.address;
+
+      // for (var s=0; s<$scope.scWithItems.menu.length; s=0) {
+      //   var section = $scope.scWithItems.menu[s].options;
+      //   $scope.setItem.
+      // }
+
+
+
+      console.log("sc", $scope.scWithItems);
+      $scope.modalSetItem.show();
+    }
   };
 
   // cancel button to close modal
   $scope.closeModal = function(option) {
     //uncomment below to close modal one at a time.
-    // if (option=='city') {
+    if (option=='city') {
       $scope.modalCity.hide();
-    // }
-    // else if (option=='shop') {
+    }
+    else if (option=='shop') {
       $scope.modalShop.hide();
-    // }
-    // else if (option=='item') {
+    }
+    else if (option=='item') {
       $scope.modalItem.hide();
-    // }    
+    }
+    else if (option=='setItem') {
+      $scope.modalSetItem.hide();    
+    }
   };
 
   //Cleanup the modal when we're done with it!
@@ -86,6 +109,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
     $scope.modalCity.remove();
     $scope.modalShop.remove();
     $scope.modalItem.remove();
+    $scope.modalSetItem.remove();
   });
 
   // Execute action on hide modal
@@ -97,5 +121,12 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
   $scope.$on('modal.removed', function() {
     // Execute action
   });
+
+
+  $scope.addItem = function(item) {
+    if (item) {
+      $scope.events.$add(item);
+    }
+  };
 
 }]);

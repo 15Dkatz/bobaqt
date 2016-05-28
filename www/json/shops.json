@@ -4,59 +4,160 @@
 		"shops" : [
 			{
 				"name": "Tpumps",
+				"address": "1916 Irving St, San Francisco, CA 94122",
 				"menu": [
 					{
 						"name": "flavors",
 						"options": [
-							"Strawberry",
-							"Mango",
-							"Green Apple",
-							"Tangerine",
-							"Blackberry",
-							"Cherry",
-							"Peach",
-							"Kiwi",
-							"Passion Fruit",
-							"Litchi",
-							"Red Bean",
-							"Taro",
-							"Honey",
-							"Almond",
-							"Chocolate",
-							"Peppermint",
-							"Cocunut",
-							"Honeydew",
-							"Pomegranate"
+							{
+								"name": "Strawberry",
+								"checked": false
+							},
+							{
+								"name": "Mango",
+								"checked": false
+							},
+							{
+								"name": "Green Apple",
+								"checked": false
+							},
+							{
+								"name": "Tangerine",
+								"checked": false
+							},
+							{
+								"name": "Blackberry",
+								"checked": false
+							},
+							{
+								"name": "Cherry",
+								"checked": false
+							},
+							{
+								"name": "Peach",
+								"checked": false
+							},
+							{
+								"name": "Kiwi",
+								"checked": false
+							},
+							{
+								"name": "Passion Fruit",
+								"checked": false
+							},
+							{
+								"name": "Litchi",
+								"checked": false
+							},
+							{
+								"name": "Red Bean",
+								"checked": false
+							},
+							{
+								"name": "Taro",
+								"checked": false
+							},
+							{
+								"name": "Honey",
+								"checked": false
+							},
+							{
+								"name": "Almond",
+								"checked": false
+							},
+							{
+								"name": "Chocolate",
+								"checked": false
+							},
+							{
+								"name": "Peppermint",
+								"checked": false
+							},
+							{
+								"name": "Cocunut",
+								"checked": false
+							},
+							{
+								"name": "Honeydew",
+								"checked": false
+							},
+							{
+								"name": "Pomegranate",
+								"checked": false
+							}
 						]
 					},
 					{
 						"name": "toppings",
 						"options": [
-							"Honey Boba",
-							"Boba Bran",
-							"Red Bean",
-							"Taro",
-							"Orange Popping Boba",
-							"Strawberry Popping Boba",
-							"Litchi Popping Boba",
-							"Mango Popping Boba",
-							"Passion Fruit Popping Boba"
+							{
+								"name": "Honey Boba",
+								"checked": false
+							},
+							{
+								"name": "Boba Bran",
+								"checked": false
+							},
+							{
+								"name": "Red Bean",
+								"checked": false
+							},
+							{
+								"name": "Taro",
+								"checked": false
+							},
+							{
+								"name": "Orange Popping Boba",
+								"checked": false
+							},
+							{
+								"name": "Strawberry Popping Boba",
+								"checked": false
+							},
+							{
+								"name": "Litchi Popping Boba",
+								"checked": false
+							},
+							{
+								"name": "Mango Popping Boba",
+								"checked": false
+							},
+							{
+								"name": "Passion Fruit Popping Boba",
+								"checked": false
+							}
 						]
 					},
 					{
 						"name": "sweetness",
 						"options": [
-							"100%",
-							"75%",
-							"50%",
-							"25%",
-							"None"
+							{
+								"name": "100%",
+								"checked": false
+							},
+							{
+								"name": "75%",
+								"checked": false
+							},
+							{
+								"name": "50%",
+								"checked": false
+							},
+							{
+								"name": "25%",
+								"checked": false
+							},
+							{
+								"name": "None",
+								"checked": false
+							}
 						]
 					}
 				]
 			},
 			{
 				"name": "Boba Guys",
+				"address": "3491 19th Street, San Francisco, CA 94110",
 				"menu": [
 					{
 						"name": "flavors",

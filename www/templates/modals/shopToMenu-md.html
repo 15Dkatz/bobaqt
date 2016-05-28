@@ -14,15 +14,15 @@
 		        </label>
 			</div>
         	<ion-radio 
-            ng-repeat="shop in selectedCity | filter:searchShop"
+            ng-repeat="shop in selectedCity.shops | filter:searchShop"
             ng-model="shopData.selected" ng-value="shop"
             ng-click="openModal('item', selectedCity, shopData.selected)"
           >
         		{{shop.name}}
         	</ion-radio>
 		</ion-list>
-    <button ng-click="testButton(shopData.selected)">
+      <!-- <button ng-click="testButton(shopData.selected)">
         Test Button
-      </button>
+      </button> -->
    </ion-content>
 </ion-modal-view>
