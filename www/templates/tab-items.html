@@ -1,32 +1,53 @@
-<ion-view view-title="Items">
-
+<ion-view>
   <ion-nav-bar class="bar-calm">
-
+      
       <ion-nav-buttons side="right">
         <button class="button button-icon ion-plus" ng-click="openModal('city')">
         </button>
       </ion-nav-buttons>
   </ion-nav-bar>
-
-
-  </ion-nav-buttons>
+  <ion-nav-title>
+    {{itemDisplayName}}
+  </ion-nav-title>
   <ion-content>
     <ion-slides options="options" slider="data.slider">
-      <ion-slide-page ng-repeat="item in items">
+      
+      <ion-slide-page ng-repeat="item in items" ng-model="selectedItem">
         <ion-content>
           <div class="list">
-            <div class="item">
-              {{item.finalName}}
+
+            <div class="">
+              <div class="bar bar-header item-input-inset item-divider">
+                QT Fire
+              </div>
+              <div class="item item-icon-right">
+                {{item.votes}}
+                <i class="icon ion-fireball {{fireActive}}" ng-click="activateFire()"></i>
+              </div>
             </div>
-            //all checked things
-            //comments
+            <div class="bar bar-header item-input-inset item-divider">
+              {{item.finalName}}<span class="badge rightBadge item-note">by {{item.displayName}} </span>
+            </div>
             <div class="item">
-              <p>Order at {{item.name}}</p>
+              <ion-list ng-repeat="option in item.menu">
+                <div class="h3-4">{{option.name}}</div>
+                <span ng-repeat="oitem in option.options | filter:{checked:true}"> {{oitem.name}}</span>
+              </ion-list>
+            </div>
+            <div class="item">
+              <p>Order at {{item.name}}</p> <!--actually the name of the shop-->
               <p>{{item.address}}</p>
             </div>
+            <div class="item">
+              <p>{{item.comments}}</p>
+            </div>
+            
           </div>
         </ion-content>
       </ion-slide-page>
     </ion-slides>
   </ion-content>
 </ion-view>
+
+
+<!-- title should update according to current Item -->

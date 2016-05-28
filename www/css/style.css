@@ -37,6 +37,18 @@
 	color: #33CD5F;
 }
 
-/*ion-slides{
-  height: 100vh !important;
-}*/
+ion-slides{
+  height: 80vh !important;
+}
+
+.h3-4 {
+	font-size:.8rem;
+	font-weight: bold;
+}
+
+.rightBadge{
+	float:right;
+	text-align: right;
+	margin-right: 0;
+	right: 0%;
+}

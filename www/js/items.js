@@ -3,10 +3,14 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
 
   $scope.cities;
   $scope.items = Items;
+  $scope.itemDisplayName = '';
+
+  console.log("idn", $scope.itemDisplayName);
 
   $http.get('./json/shops.json')
   .then(function(res){
-    $scope.cities = res.data;                
+    $scope.cities = res.data;
+    $scope.itemDisplayName = $scope.items[0];       
   });
 
   $ionicModal.fromTemplateUrl('./templates/modals/cityToShop-md.html', {
@@ -126,8 +130,8 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
     } else {
       item.displayName = "anonymous";
     }
-
     if (item) {
+      item.votes = 0;
       $scope.items.$add(item);
     }
     closeAllModals();
@@ -136,16 +140,71 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
   $scope.options = {
     loop: false,
     effect: 'fade',
-    speed: 500,
+    speed: 50,
+  }
+
+  // var index = $scope.slider.activeIndex;
+  $scope.currentItem = $scope.items[0];
+
+  // $scope.currentItem  
+
+  $scope.fireActive = "";
+
+  $scope.activateFire = function() {
+    var index = $scope.slider.activeIndex;
+    $scope.currentItem = $scope.items[index];
+    if ($scope.fireActive=="") {
+      $scope.fireActive = "assertive";
+      $scope.currentItem.votes += 1;
+      console.log($scope.items);
+    } else {
+      $scope.fireActive = "";
+      $scope.currentItem.votes -= 1;
+    }
+
+    // later prevent fire checking if authenticated
+    $scope.items.$save($scope.currentItem);
+    console.log("fireActive", $scope.fireActive);
   }
 
   $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
     // data.slider is the instance of Swiper
     $scope.slider = data.slider;
+    var index = $scope.slider.activeIndex;
+    // $scope.$apply(function() {
+      // $scope.itemDisplayName = $scope.items[index].finalName;
+    // })
+    console.log("index", index);
+    console.log($scope.items);
+
+    var itemsList = [];
+    // ugly Hack
+    var itemRef = new Firebase("https://bobaqt.firebaseio.com/");
+    if (itemRef) {
+      itemRef.once("value", function(snapshot) {
+        if (snapshot.exists()) {
+          itemsList = snapshot.val()["items"];
+          console.log("itemsList", itemslist);
+        }
+      })
+    }
   });
 
+  // $scope.itemDisplayName = $scope.items[0].name;
   $scope.$on("$ionicSlides.slideChangeStart", function(event, data){
     console.log('Slide change is beginning');
+    // console.log($scope.slider.activeIndex);
+    var index = $scope.slider.activeIndex;
+    $scope.$apply(function() {
+      $scope.itemDisplayName = $scope.items[index].finalName;
+    })
+    
+
+    
+
+    $scope.currentItem = $scope.items[index];
+    // console.log("idn", $scope.itemDisplayName);
+    console.log($scope.items[index].finalName);
   });
 
   $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
@@ -154,3 +213,6 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
     $scope.previousIndex = data.previousIndex;
   });
 }]);
+
+// prevent FireVoting and itemAdding if the user is not authenticated
+// fix updating title
