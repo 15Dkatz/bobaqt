@@ -1,4 +1,4 @@
-pardeezApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", function($scope, $rootScope, Auth) {
+bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", function($scope, $rootScope, Auth) {
   $scope.settings = {
     enableFriends: true
   };
@@ -7,7 +7,7 @@ pardeezApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", function($
   $scope.authedBool = false;
 
   $scope.fblogin = function() {
-    var ref = new Firebase("https://pardeez.firebaseio.com");
+    var ref = new Firebase("https://bobaqt.firebaseio.com/");
     ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);
@@ -25,7 +25,7 @@ pardeezApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", function($
   };
 
   $scope.gglogin = function() {
-    var ref = new Firebase("https://pardeez.firebaseio.com");
+    var ref = new Firebase("https://bobaqt.firebaseio.com/");
     ref.authWithOAuthPopup("google", function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);

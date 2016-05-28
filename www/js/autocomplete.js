@@ -1,461 +1,298 @@
-/*
- * angular-google-places-autocomplete
- *
- * Copyright (c) 2014 "kuhnza" David Kuhn
- * Licensed under the MIT license.
- * https://github.com/kuhnza/angular-google-places-autocomplete/blob/master/LICENSE
- */
+/* --- Made by justgoscha and licensed under MIT license --- */
 
- 'use strict';
+var app = angular.module('autocomplete', []);
 
-angular.module('google.places', [])
-  /**
-   * DI wrapper around global google places library.
-   *
-   * Note: requires the Google Places API to already be loaded on the page.
-   */
-  .factory('googlePlacesApi', ['$window', function ($window) {
-        if (!$window.google) throw 'Global `google` var missing. Did you forget to include the places API script?';
+app.directive('autocomplete', function() {
+  var index = -1;
 
-    return $window.google;
-  }])
+  return {
+    restrict: 'E',
+    scope: {
+      searchParam: '=ngModel',
+      suggestions: '=data',
+      onType: '=onType',
+      onSelect: '=onSelect',
+      autocompleteRequired: '='
+    },
+    controller: ['$scope', function($scope){
+      // the index of the suggestions that's currently selected
+      $scope.selectedIndex = -1;
 
-  /**
-   * Autocomplete directive. Use like this:
-   *
-   * <input type="text" g-places-autocomplete ng-model="myScopeVar" />
-   */
-  .directive('gPlacesAutocomplete',
-        [ '$parse', '$compile', '$timeout', '$document', 'googlePlacesApi',
-        function ($parse, $compile, $timeout, $document, google) {
+      $scope.initLock = true;
 
-            return {
-                restrict: 'A',
-                require: '^ngModel',
-                scope: {
-                    model: '=ngModel',
-                    options: '=?',
-                    forceSelection: '=?',
-                    customPlaces: '=?'
-                },
-                controller: ['$scope', function ($scope) {}],
-                link: function ($scope, element, attrs, controller) {
-                    var keymap = {
-                            tab: 9,
-                            enter: 13,
-                            esc: 27,
-                            up: 38,
-                            down: 40
-                        },
-                        hotkeys = [keymap.tab, keymap.enter, keymap.esc, keymap.up, keymap.down],
-                        autocompleteService = new google.maps.places.AutocompleteService(),
-                        placesService = new google.maps.places.PlacesService(element[0]);
+      // set new index
+      $scope.setIndex = function(i){
+        $scope.selectedIndex = parseInt(i);
+      };
 
-                    (function init() {
-                        $scope.query = '';
-                        $scope.predictions = [];
-                        $scope.input = element;
-                        $scope.options = $scope.options || {};
+      this.setIndex = function(i){
+        $scope.setIndex(i);
+        $scope.$apply();
+      };
 
-                        initAutocompleteDrawer();
-                        initEvents();
-                        initNgModelController();
-                    }());
+      $scope.getIndex = function(i){
+        return $scope.selectedIndex;
+      };
 
-                    function initEvents() {
-                        element.bind('keydown', onKeydown);
-                        element.bind('blur', onBlur);
-                        element.bind('submit', onBlur);
+      // watches if the parameter filter should be changed
+      var watching = true;
 
-                        $scope.$watch('selected', select);
-                    }
+      // autocompleting drop down on/off
+      $scope.completing = false;
 
-                    function initAutocompleteDrawer() {
-                        // Drawer element used to display predictions
-                        var drawerElement = angular.element('<div g-places-autocomplete-drawer></div>'),
-                            body = angular.element($document[0].body),
-                            $drawer;
+      // starts autocompleting on typing in something
+      $scope.$watch('searchParam', function(newValue, oldValue){
 
-                        drawerElement.attr({
-                            input: 'input',
-                            query: 'query',
-                            predictions: 'predictions',
-                            active: 'active',
-                            selected: 'selected'
-                        });
-
-                        $drawer = $compile(drawerElement)($scope);
-                        body.append($drawer);  // Append to DOM
-
-                        $scope.$on('$destroy', function() {
-                            $drawer.remove();
-                        });
-                    }
-
-                    function initNgModelController() {
-                        controller.$parsers.push(parse);
-                        controller.$formatters.push(format);
-                        controller.$render = render;
-                    }
-
-                    function onKeydown(event) {
-                        if ($scope.predictions.length === 0 || indexOf(hotkeys, event.which) === -1) {
-                            return;
-                        }
-
-                        event.preventDefault();
-
-                        if (event.which === keymap.down) {
-                            $scope.active = ($scope.active + 1) % $scope.predictions.length;
-                            $scope.$digest();
-                        } else if (event.which === keymap.up) {
-                            $scope.active = ($scope.active ? $scope.active : $scope.predictions.length) - 1;
-                            $scope.$digest();
-                        } else if (event.which === 13 || event.which === 9) {
-                            if ($scope.forceSelection) {
-                                $scope.active = ($scope.active === -1) ? 0 : $scope.active;
-                            }
-
-                            $scope.$apply(function () {
-                                $scope.selected = $scope.active;
-
-                                if ($scope.selected === -1) {
-                                    clearPredictions();
-                                }
-                            });
-                        } else if (event.which === 27) {
-                            $scope.$apply(function () {
-                                event.stopPropagation();
-                                clearPredictions();
-                            });
-                        }
-                    }
-
-                    function onBlur(event) {
-                        if ($scope.predictions.length === 0) {
-                            return;
-                        }
-
-                        if ($scope.forceSelection) {
-                            $scope.selected = ($scope.selected === -1) ? 0 : $scope.selected;
-                        }
-
-                        $scope.$digest();
-
-                        $scope.$apply(function () {
-                            if ($scope.selected === -1) {
-                                clearPredictions();
-                            }
-                        });
-                    }
-
-                    function select() {
-                        var prediction;
-
-                        prediction = $scope.predictions[$scope.selected];
-                        if (!prediction) return;
-
-                        if (prediction.is_custom) {
-                            $scope.$apply(function () {
-                                $scope.model = prediction.place;
-                                $scope.$emit('g-places-autocomplete:select', prediction.place);
-                                $timeout(function () {
-                                    controller.$viewChangeListeners.forEach(function (fn) { fn(); });
-                                });
-                            });
-                        } else {
-                            placesService.getDetails({ placeId: prediction.place_id }, function (place, status) {
-                                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                                    $scope.$apply(function () {
-                                        $scope.model = place;
-                                        $scope.$emit('g-places-autocomplete:select', place);
-                                        $timeout(function () {
-                                            controller.$viewChangeListeners.forEach(function (fn) { fn(); });
-                                        });
-                                    });
-                                }
-                            });
-                        }
-
-                        clearPredictions();
-                    }
-
-                    function parse(viewValue) {
-                        var request;
-
-                        if (!(viewValue && isString(viewValue))) return viewValue;
-
-                        $scope.query = viewValue;
-
-                        request = angular.extend({ input: viewValue }, $scope.options);
-                        autocompleteService.getPlacePredictions(request, function (predictions, status) {
-                            $scope.$apply(function () {
-                                var customPlacePredictions;
-
-                                clearPredictions();
-
-                                if ($scope.customPlaces) {
-                                    customPlacePredictions = getCustomPlacePredictions($scope.query);
-                                    $scope.predictions.push.apply($scope.predictions, customPlacePredictions);
-                                }
-
-                                if (status == google.maps.places.PlacesServiceStatus.OK) {
-                                    $scope.predictions.push.apply($scope.predictions, predictions);
-                                }
-
-                                if ($scope.predictions.length > 5) {
-                                    $scope.predictions.length = 5;  // trim predictions down to size
-                                }
-                            });
-                        });
-
-                        if ($scope.forceSelection) {
-                            return controller.$modelValue;
-                        } else {
-                            return viewValue;
-                        }
-                    }
-
-                    function format(modelValue) {
-                        var viewValue = "";
-
-                        if (isString(modelValue)) {
-                            viewValue = modelValue;
-                        } else if (isObject(modelValue)) {
-                            viewValue = modelValue.formatted_address;
-                        }
-
-                        return viewValue;
-                    }
-
-                    function render() {
-                        return element.val(controller.$viewValue);
-                    }
-
-                    function clearPredictions() {
-                        $scope.active = -1;
-                        $scope.selected = -1;
-                        $scope.predictions = [];
-                    }
-
-                    function getCustomPlacePredictions(query) {
-                        var predictions = [],
-                            place, match, i;
-
-                        for (i = 0; i < $scope.customPlaces.length; i++) {
-                            place = $scope.customPlaces[i];
-
-                            match = getCustomPlaceMatches(query, place);
-                            if (match.matched_substrings.length > 0) {
-                                predictions.push({
-                                    is_custom: true,
-                                    custom_prediction_label: place.custom_prediction_label || '(Custom Non-Google Result)',  // required by https://developers.google.com/maps/terms § 10.1.1 (d)
-                                    description: place.formatted_address,
-                                    place: place,
-                                    matched_substrings: match.matched_substrings,
-                                    terms: match.terms
-                                });
-                            }
-                        }
-
-                        return predictions;
-                    }
-
-                    function getCustomPlaceMatches(query, place) {
-                        var q = query + '',  // make a copy so we don't interfere with subsequent matches
-                            terms = [],
-                            matched_substrings = [],
-                            fragment,
-                            termFragments,
-                            i;
-
-                        termFragments = place.formatted_address.split(',');
-                        for (i = 0; i < termFragments.length; i++) {
-                            fragment = termFragments[i].trim();
-
-                            if (q.length > 0) {
-                                if (fragment.length >= q.length) {
-                                    if (startsWith(fragment, q)) {
-                                        matched_substrings.push({ length: q.length, offset: i });
-                                    }
-                                    q = '';  // no more matching to do
-                                } else {
-                                    if (startsWith(q, fragment)) {
-                                        matched_substrings.push({ length: fragment.length, offset: i });
-                                        q = q.replace(fragment, '').trim();
-                                    } else {
-                                        q = '';  // no more matching to do
-                                    }
-                                }
-                            }
-
-                            terms.push({
-                                value: fragment,
-                                offset: place.formatted_address.indexOf(fragment)
-                            });
-                        }
-
-                        return {
-                            matched_substrings: matched_substrings,
-                            terms: terms
-                        };
-                    }
-
-                    function isString(val) {
-                        return Object.prototype.toString.call(val) == '[object String]';
-                    }
-
-                    function isObject(val) {
-                        return Object.prototype.toString.call(val) == '[object Object]';
-                    }
-
-                    function indexOf(array, item) {
-                        var i, length;
-
-                        if (array === null) return -1;
-
-                        length = array.length;
-                        for (i = 0; i < length; i++) {
-                            if (array[i] === item) return i;
-                        }
-                        return -1;
-                    }
-
-                    function startsWith(string1, string2) {
-                        return toLower(string1).lastIndexOf(toLower(string2), 0) === 0;
-                    }
-
-                    function toLower(string) {
-                        return (string === null) ? "" : string.toLowerCase();
-                    }
-                }
-            };
+        if (oldValue === newValue || (!oldValue && $scope.initLock)) {
+          return;
         }
-    ])
+
+        if(watching && typeof $scope.searchParam !== 'undefined' && $scope.searchParam !== null) {
+          $scope.completing = true;
+          $scope.searchFilter = $scope.searchParam;
+          $scope.selectedIndex = -1;
+        }
+
+        // function thats passed to on-type attribute gets executed
+        if($scope.onType)
+          $scope.onType($scope.searchParam);
+      });
+
+      // for hovering over suggestions
+      this.preSelect = function(suggestion){
+
+        watching = false;
+
+        // this line determines if it is shown
+        // in the input field before it's selected:
+        //$scope.searchParam = suggestion;
+
+        $scope.$apply();
+        watching = true;
+
+      };
+
+      $scope.preSelect = this.preSelect;
+
+      this.preSelectOff = function(){
+        watching = true;
+      };
+
+      $scope.preSelectOff = this.preSelectOff;
+
+      // selecting a suggestion with RIGHT ARROW or ENTER
+      $scope.select = function(suggestion){
+        if(suggestion){
+          $scope.searchParam = suggestion;
+          $scope.searchFilter = suggestion;
+          if($scope.onSelect)
+            $scope.onSelect(suggestion);
+        }
+        watching = false;
+        $scope.completing = false;
+        setTimeout(function(){watching = true;},1000);
+        $scope.setIndex(-1);
+      };
 
 
-    .directive('gPlacesAutocompleteDrawer', ['$window', '$document', function ($window, $document) {
-        var TEMPLATE = [
-            '<div class="pac-container" ng-if="isOpen()" ng-style="{top: position.top+\'px\', left: position.left+\'px\', width: position.width+\'px\'}" style="display: block;" role="listbox" aria-hidden="{{!isOpen()}}">',
-            '  <div class="pac-item" g-places-autocomplete-prediction index="$index" prediction="prediction" query="query"',
-            '       ng-repeat="prediction in predictions track by $index" ng-class="{\'pac-item-selected\': isActive($index) }"',
-            '       ng-mouseenter="selectActive($index)" ng-click="selectPrediction($index)" role="option" id="{{prediction.id}}">',
-            '  </div>',
-            '</div>'
-        ];
+    }],
+    link: function(scope, element, attrs){
 
-        return {
-            restrict: 'A',
-            scope:{
-                input: '=',
-                query: '=',
-                predictions: '=',
-                active: '=',
-                selected: '='
-            },
-            template: TEMPLATE.join(''),
-            link: function ($scope, element) {
-                element.bind('mousedown', function (event) {
-                    event.preventDefault();  // prevent blur event from firing when clicking selection
-                });
+      setTimeout(function() {
+        scope.initLock = false;
+        scope.$apply();
+      }, 250);
 
-                $window.onresize = function () {
-                    $scope.$apply(function () {
-                        $scope.position = getDrawerPosition($scope.input);
-                    });
-                };
+      var attr = '';
 
-                $scope.isOpen = function () {
-                    return $scope.predictions.length > 0;
-                };
+      // Default atts
+      scope.attrs = {
+        "placeholder": "start typing...",
+        "class": "",
+        "id": "",
+        "inputclass": "",
+        "inputid": ""
+      };
 
-                $scope.isActive = function (index) {
-                    return $scope.active === index;
-                };
+      for (var a in attrs) {
+        attr = a.replace('attr', '').toLowerCase();
+        // add attribute overriding defaults
+        // and preventing duplication
+        if (a.indexOf('attr') === 0) {
+          scope.attrs[attr] = attrs[a];
+        }
+      }
 
-                $scope.selectActive = function (index) {
-                    $scope.active = index;
-                };
+      if (attrs.clickActivation) {
+        element[0].onclick = function(e){
+          if(!scope.searchParam){
+            setTimeout(function() {
+              scope.completing = true;
+              scope.$apply();
+            }, 200);
+          }
+        };
+      }
 
-                $scope.selectPrediction = function (index) {
-                    $scope.selected = index;
-                };
+      var key = {left: 37, up: 38, right: 39, down: 40 , enter: 13, esc: 27, tab: 9};
 
-                $scope.$watch('predictions', function () {
-                    $scope.position = getDrawerPosition($scope.input);
-                }, true);
+      document.addEventListener("keydown", function(e){
+        var keycode = e.keyCode || e.which;
 
-                function getDrawerPosition(element) {
-                    var domEl = element[0],
-                        rect = domEl.getBoundingClientRect(),
-                        docEl = $document[0].documentElement,
-                        body = $document[0].body,
-                        scrollTop = $window.pageYOffset || docEl.scrollTop || body.scrollTop,
-                        scrollLeft = $window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+        switch (keycode){
+          case key.esc:
+            // disable suggestions on escape
+            scope.select();
+            scope.setIndex(-1);
+            scope.$apply();
+            e.preventDefault();
+        }
+      }, true);
 
-                    return {
-                        width: rect.width,
-                        height: rect.height,
-                        top: rect.top + rect.height + scrollTop,
-                        left: rect.left + scrollLeft
-                    };
-                }
+      document.addEventListener("blur", function(e){
+        // disable suggestions on blur
+        // we do a timeout to prevent hiding it before a click event is registered
+        setTimeout(function() {
+          scope.select();
+          scope.setIndex(-1);
+          scope.$apply();
+        }, 150);
+      }, true);
+
+      element[0].addEventListener("keydown",function (e){
+        var keycode = e.keyCode || e.which;
+
+        var l = angular.element(this).find('li').length;
+
+        // this allows submitting forms by pressing Enter in the autocompleted field
+        if(!scope.completing || l == 0) return;
+
+        // implementation of the up and down movement in the list of suggestions
+        switch (keycode){
+          case key.up:
+
+            index = scope.getIndex()-1;
+            if(index<-1){
+              index = l-1;
+            } else if (index >= l ){
+              index = -1;
+              scope.setIndex(index);
+              scope.preSelectOff();
+              break;
             }
-        };
-    }])
+            scope.setIndex(index);
 
-    .directive('gPlacesAutocompletePrediction', [function () {
-        var TEMPLATE = [
-            '<span class="pac-icon pac-icon-marker"></span>',
-            '<span class="pac-item-query" ng-bind-html="prediction | highlightMatched"></span>',
-            '<span ng-repeat="term in prediction.terms | unmatchedTermsOnly:prediction">{{term.value | trailingComma:!$last}}&nbsp;</span>',
-            '<span class="custom-prediction-label" ng-if="prediction.is_custom">&nbsp;{{prediction.custom_prediction_label}}</span>'
-        ];
+            if(index!==-1)
+              scope.preSelect(angular.element(angular.element(this).find('li')[index]).text());
 
-        return {
-            restrict: 'A',
-            scope:{
-                index:'=',
-                prediction:'=',
-                query:'='
-            },
-            template: TEMPLATE.join('')
-        };
-    }])
+            scope.$apply();
 
-    .filter('highlightMatched', ['$sce', function ($sce) {
-        return function (prediction) {
-            var matchedPortion = '',
-                unmatchedPortion = '',
-                matched;
-
-            if (prediction.matched_substrings.length > 0 && prediction.terms.length > 0) {
-                matched = prediction.matched_substrings[0];
-                matchedPortion = prediction.terms[0].value.substr(matched.offset, matched.length);
-                unmatchedPortion = prediction.terms[0].value.substr(matched.offset + matched.length);
+            break;
+          case key.down:
+            index = scope.getIndex()+1;
+            if(index<-1){
+              index = l-1;
+            } else if (index >= l ){
+              index = -1;
+              scope.setIndex(index);
+              scope.preSelectOff();
+              scope.$apply();
+              break;
             }
+            scope.setIndex(index);
 
-            return $sce.trustAsHtml('<span class="pac-matched">' + matchedPortion + '</span>' + unmatchedPortion);
-        };
-    }])
+            if(index!==-1)
+              scope.preSelect(angular.element(angular.element(this).find('li')[index]).text());
 
-    .filter('unmatchedTermsOnly', [function () {
-        return function (terms, prediction) {
-            var i, term, filtered = [];
+            break;
+          case key.left:
+            break;
+          case key.right:
+          case key.enter:
+          case key.tab:
 
-            for (i = 0; i < terms.length; i++) {
-                term = terms[i];
-                if (prediction.matched_substrings.length > 0 && term.offset > prediction.matched_substrings[0].length) {
-                    filtered.push(term);
-                }
+            index = scope.getIndex();
+            // scope.preSelectOff();
+            if(index !== -1) {
+              scope.select(angular.element(angular.element(this).find('li')[index]).text());
+              if(keycode == key.enter) {
+                e.preventDefault();
+              }
+            } else {
+              if(keycode == key.enter) {
+                scope.select();
+              }
             }
+            scope.setIndex(-1);
+            scope.$apply();
 
-            return filtered;
-        };
-    }])
+            break;
+          case key.esc:
+            // disable suggestions on escape
+            scope.select();
+            scope.setIndex(-1);
+            scope.$apply();
+            e.preventDefault();
+            break;
+          default:
+            return;
+        }
 
-    .filter('trailingComma', [function () {
-        return function (input, condition) {
-            return (condition) ? input + ',' : input;
-        };
-    }]);
+      });
+    },
+    template: '\
+        <div class="autocomplete {{ attrs.class }}" id="{{ attrs.id }}">\
+          <input\
+            type="text"\
+            ng-model="searchParam"\
+            placeholder="{{ attrs.placeholder }}"\
+            class="{{ attrs.inputclass }}"\
+            id="{{ attrs.inputid }}"\
+            ng-required="{{ autocompleteRequired }}" />\
+          <ul ng-show="completing && (suggestions | filter:searchFilter).length > 0">\
+            <li\
+              suggestion\
+              ng-repeat="suggestion in suggestions | filter:searchFilter | orderBy:\'toString()\' track by $index"\
+              index="{{ $index }}"\
+              val="{{ suggestion }}"\
+              ng-class="{ active: ($index === selectedIndex) }"\
+              ng-click="select(suggestion)"\
+              ng-bind-html="suggestion | highlight:searchParam"></li>\
+          </ul>\
+        </div>'
+  };
+});
+
+app.filter('highlight', ['$sce', function ($sce) {
+  return function (input, searchParam) {
+    if (typeof input === 'function') return '';
+    if (searchParam) {
+      var words = '(' +
+            searchParam.split(/\ /).join(' |') + '|' +
+            searchParam.split(/\ /).join('|') +
+          ')',
+          exp = new RegExp(words, 'gi');
+      if (words.length) {
+        input = input.replace(exp, "<span class=\"highlight\">$1</span>");
+      }
+    }
+    return $sce.trustAsHtml(input);
+  };
+}]);
+
+app.directive('suggestion', function(){
+  return {
+    restrict: 'A',
+    require: '^autocomplete', // ^look for controller on parents element
+    link: function(scope, element, attrs, autoCtrl){
+      element.bind('mouseenter', function() {
+        autoCtrl.preSelect(attrs.val);
+        autoCtrl.setIndex(attrs.index);
+      });
+
+      element.bind('mouseleave', function() {
+        autoCtrl.preSelectOff();
+      });
+    }
+  };
+});

@@ -1,0 +1,24 @@
+<ion-view view-title="Items">
+   <!-- SearchBar and + button in nav -->
+  <ion-nav-bar class="bar-calm">
+
+      <ion-nav-buttons side="right">
+        <button class="button button-icon ion-plus" ng-click="openModal()">
+        </button>
+        <button class="button button-icon ion-android-list" ng-click="testButton()">
+        </button>
+      </ion-nav-buttons>
+  </ion-nav-bar>
+
+
+  </ion-nav-buttons>
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="item in items">
+        <div class="card">
+          <p>item.name</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

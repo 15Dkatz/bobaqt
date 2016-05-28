@@ -1,0 +1,1109 @@
+{
+    "region": {
+        "span": {
+            "latitude_delta": 0.06013949498513682, 
+            "longitude_delta": 0.09833080153600804
+        }, 
+        "center": {
+            "latitude": 37.77025733408415, 
+            "longitude": -122.43485328112
+        }
+    }, 
+    "total": 528, 
+    "businesses": [
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/boba-guys-san-francisco-6?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 717, 
+            "name": "Boba Guys", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/boba-guys-san-francisco-6?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Desserts", 
+                    "desserts"
+                ]
+            ], 
+            "snippet_text": "I don't get wowed by boba/bubble tea/whatever. To me, you could switch out any one of the gamut of shops in the Bay Area/SoCal/NY for another and the...", 
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/pWQ2S4BO292nQv4r4Pxx8A/ms.jpg", 
+            "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/wQhe0jq0fun3UM07GJDtpA/ms.jpg", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "id": "boba-guys-san-francisco-6", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Bush St & Sutter St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "429 Stockton St", 
+                    "Union Square", 
+                    "San Francisco, CA 94108"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Union Square", 
+                    "Financial District"
+                ], 
+                "postal_code": "94108", 
+                "country_code": "US", 
+                "address": [
+                    "429 Stockton St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7898750430312, 
+                    "longitude": -122.407143359783
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/boba-guys-san-francisco-4?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 804, 
+            "name": "Boba Guys", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/boba-guys-san-francisco-4?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ]
+            ], 
+            "menu_date_updated": 1442118312, 
+            "phone": "4159672622", 
+            "snippet_text": "Although I'm someone who avoids carb-y fillers like boba, I couldn't stay away from the boba at Boba Guys. I was told that their drinks were delicious, and...", 
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/4pdDcd0Fh6qbNEYlRt9vJg/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/ASVljnwkd-BCCNeCUE22Lg/ms.jpg", 
+            "display_phone": "+1-415-967-2622", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "menu_provider": "single_platform", 
+            "id": "boba-guys-san-francisco-4", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Valencia St & Lexington St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "3491 19th St", 
+                    "Mission", 
+                    "San Francisco, CA 94110"
+                ], 
+                "geo_accuracy": 8.0, 
+                "neighborhoods": [
+                    "Mission"
+                ], 
+                "postal_code": "94110", 
+                "country_code": "US", 
+                "address": [
+                    "3491 19th St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.75994, 
+                    "longitude": -122.42112
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": false, 
+            "rating": 4.5, 
+            "mobile_url": "http://m.yelp.com/biz/steep-san-francisco-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png", 
+            "review_count": 59, 
+            "name": "STEEP", 
+            "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png", 
+            "url": "http://www.yelp.com/biz/steep-san-francisco-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Juice Bars & Smoothies", 
+                    "juicebars"
+                ]
+            ], 
+            "menu_date_updated": 1461858312, 
+            "snippet_text": "I'm so happy that we finally have a boba place in SoMa!  It's very clean and the service is wonderful.  It gets really crowded during lunch and the price is...", 
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/olWxbNr7xG2oBqzfAnmxAQ/ms.jpg", 
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/zEDwp0ekWWSDADOI-_oRjw/ms.jpg", 
+            "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png", 
+            "menu_provider": "eat24", 
+            "id": "steep-san-francisco-2", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Brannan St & Bryant St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "240 Ritch St", 
+                    "SoMa", 
+                    "San Francisco, CA 94107"
+                ], 
+                "geo_accuracy": 8.0, 
+                "neighborhoods": [
+                    "SoMa"
+                ], 
+                "postal_code": "94107", 
+                "country_code": "US", 
+                "address": [
+                    "240 Ritch St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7803342044353, 
+                    "longitude": -122.395782843232
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/little-sweet-san-francisco-10?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 213, 
+            "name": "Little Sweet", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/little-sweet-san-francisco-10?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Juice Bars & Smoothies", 
+                    "juicebars"
+                ]
+            ], 
+            "menu_date_updated": 1456650530, 
+            "phone": "4157026763", 
+            "snippet_text": "Silly me keeps confusing this with Little Sheep. Maybe they can do a Sweet x Sheep collab?\n\nLittle Sweet stands on its own merits though and is consistently...", 
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/2i7ACw9bYWomg9bd-HqYvQ/ms.jpg", 
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/JvC-9XiRZ5jJxSNhmkJXEw/ms.jpg", 
+            "display_phone": "+1-415-702-6763", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "menu_provider": "single_platform", 
+            "id": "little-sweet-san-francisco-10", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "2nd Ave & 3rd Ave", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "3836 Geary Blvd", 
+                    "Inner Richmond", 
+                    "San Francisco, CA 94118"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Inner Richmond"
+                ], 
+                "postal_code": "94118", 
+                "country_code": "US", 
+                "address": [
+                    "3836 Geary Blvd"
+                ], 
+                "coordinate": {
+                    "latitude": 37.781425, 
+                    "longitude": -122.4608022
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/bottle-zup-san-francisco-4?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 70, 
+            "name": "Bottle Zup", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/bottle-zup-san-francisco-4?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ]
+            ], 
+            "menu_date_updated": 1463853070, 
+            "phone": "4158958860", 
+            "snippet_text": "LOOOOOOOVED this place!!! i wish there was one in san jose! \nSo at first we had a hard time finding this place bc it was inside shabu house! we drove by...", 
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/znnyVTTMNaWmnWhvww-LyA/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/cSn0yavSuVcbkhEjAsz1sA/ms.jpg", 
+            "display_phone": "+1-415-895-8860", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "menu_provider": "eat24", 
+            "id": "bottle-zup-san-francisco-4", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "5th Ave & 4th Ave", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "354 Clement St", 
+                    "Inner Richmond", 
+                    "San Francisco, CA 94118"
+                ], 
+                "geo_accuracy": 8.0, 
+                "neighborhoods": [
+                    "Inner Richmond"
+                ], 
+                "postal_code": "94118", 
+                "country_code": "US", 
+                "address": [
+                    "354 Clement St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.78325, 
+                    "longitude": -122.46315
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.5, 
+            "mobile_url": "http://m.yelp.com/biz/i-tea-san-francisco-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png", 
+            "review_count": 165, 
+            "name": "i-Tea", 
+            "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png", 
+            "url": "http://www.yelp.com/biz/i-tea-san-francisco-3?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Juice Bars & Smoothies", 
+                    "juicebars"
+                ]
+            ], 
+            "phone": "4153109391", 
+            "snippet_text": "I'm usually pretty skeptical about trying new boba places and have remained faithful to ShareTea for years, so when Plentea was a bit too long of s wait I...", 
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/KWn9hAAshEpSnS021RN1UA/ms.jpg", 
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/tNM68_SnGYEb-VMhTUNs4g/ms.jpg", 
+            "display_phone": "+1-415-310-9391", 
+            "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png", 
+            "id": "i-tea-san-francisco-3", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Bush St & Hardie Pl", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "253 Kearny St", 
+                    "Union Square", 
+                    "San Francisco, CA 94108"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Union Square", 
+                    "Financial District"
+                ], 
+                "postal_code": "94108", 
+                "country_code": "US", 
+                "address": [
+                    "253 Kearny St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7903960633508, 
+                    "longitude": -122.404124513268
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 3.5, 
+            "mobile_url": "http://m.yelp.com/biz/plentea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png", 
+            "review_count": 1264, 
+            "name": "Plentea", 
+            "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png", 
+            "url": "http://www.yelp.com/biz/plentea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Desserts", 
+                    "desserts"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ]
+            ], 
+            "phone": "4157669852", 
+            "snippet_text": "NOTE: $10 MIN ON CREDIT CARDS\n\nSolid boba experience. Not one of my better experience, but not too many complaints. This is the place that gives you the...", 
+            "image_url": "https://s3-media2.fl.yelpcdn.com/bphoto/jtHM-zksc1sIxfxbLa1I9A/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/ZuBY0c4pX4gJBip1jJb_tA/ms.jpg", 
+            "display_phone": "+1-415-766-9852", 
+            "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png", 
+            "id": "plentea-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Bush St & Pine St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "341 Kearny St", 
+                    "Chinatown", 
+                    "San Francisco, CA 94108"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Chinatown"
+                ], 
+                "postal_code": "94108", 
+                "country_code": "US", 
+                "address": [
+                    "341 Kearny St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.79138, 
+                    "longitude": -122.40439
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/bubblecup-san-francisco-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 37, 
+            "name": "Bubblecup", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/bubblecup-san-francisco-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Juice Bars & Smoothies", 
+                    "juicebars"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ]
+            ], 
+            "menu_date_updated": 1463599265, 
+            "phone": "4155626081", 
+            "snippet_text": "The caramel pudding milk slush is definitely the BOMB!!!! Definitely a MUST TRY...!\n\n**Update 5/9/2016**\nThis place has been my favorite ever since my first...", 
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/jgqsKpSqP5G2Gc06YEFPiQ/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/bQTJgx1dB_mfddo9gG2Igg/ms.jpg", 
+            "display_phone": "+1-415-562-6081", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "menu_provider": "eat24", 
+            "id": "bubblecup-san-francisco-2", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "21st Ave & 20th Ave", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "1900 Clement St", 
+                    "Outer Richmond", 
+                    "San Francisco, CA 94121"
+                ], 
+                "geo_accuracy": 8.0, 
+                "neighborhoods": [
+                    "Outer Richmond"
+                ], 
+                "postal_code": "94121", 
+                "country_code": "US", 
+                "address": [
+                    "1900 Clement St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7822781354189, 
+                    "longitude": -122.479696422815
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/sharetea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 456, 
+            "name": "Sharetea", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/sharetea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ]
+            ], 
+            "phone": "4157340525", 
+            "snippet_text": "Tea = delicious! Huge selection. \n\nOkinawa Pearl Milk Tea = Roasted brown sugar milk tea with pearls. Awesome. Perfect pearls, too.  I had to go back and...", 
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/EnEW0RpgQUUMDGYZ1TF2Mw/ms.jpg", 
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/lvIJArP0Gj8HgdyblEnmMQ/ms.jpg", 
+            "display_phone": "+1-415-734-0525", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "id": "sharetea-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "18th Ave & 17th Ave", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "5336 Geary Blvd", 
+                    "Inner Richmond", 
+                    "San Francisco, CA 94121"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Inner Richmond"
+                ], 
+                "postal_code": "94121", 
+                "country_code": "US", 
+                "address": [
+                    "5336 Geary Blvd"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7805581688881, 
+                    "longitude": -122.476615235209
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 3.5, 
+            "mobile_url": "http://m.yelp.com/biz/hitea-san-francisco-5?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png", 
+            "review_count": 47, 
+            "name": "HiTea", 
+            "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png", 
+            "url": "http://www.yelp.com/biz/hitea-san-francisco-5?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ]
+            ], 
+            "phone": "4159862387", 
+            "snippet_text": "Stumbled upon this place while walking around Chinatown with the bf. Decided to try it out since we were pretty parched. \n\nThey do carbonated drinks with...", 
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/I-FHnsHQcKP6mN5eJAs0iQ/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/154jBGf3AR-lqrEHNXXvww/ms.jpg", 
+            "display_phone": "+1-415-986-2387", 
+            "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png", 
+            "id": "hitea-san-francisco-5", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Robert C Levy Tunl & Powell St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "776 Broadway", 
+                    "Russian Hill", 
+                    "San Francisco, CA 94133"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Russian Hill", 
+                    "North Beach/Telegraph Hill"
+                ], 
+                "postal_code": "94133", 
+                "country_code": "US", 
+                "address": [
+                    "776 Broadway"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7975934681683, 
+                    "longitude": -122.409936524928
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 3.5, 
+            "mobile_url": "http://m.yelp.com/biz/mr-and-mrs-tea-house-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png", 
+            "review_count": 85, 
+            "name": "Mr & Mrs Tea House", 
+            "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png", 
+            "url": "http://www.yelp.com/biz/mr-and-mrs-tea-house-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Desserts", 
+                    "desserts"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ]
+            ], 
+            "menu_date_updated": 1462164588, 
+            "phone": "4157026813", 
+            "snippet_text": "I like this place! \n\nDecided to check it out because we wanted to venture away from our usual spot in the Richmond, Sharetea. \n\nOrdered a honey milk green...", 
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/5-eo0h0N8wY7qc_-1R2vYw/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/7ojyze-7kks4MjnZcCpnGQ/ms.jpg", 
+            "display_phone": "+1-415-702-6813", 
+            "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png", 
+            "menu_provider": "eat24", 
+            "id": "mr-and-mrs-tea-house-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "7th Ave & 6th Ave", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "544 Clement", 
+                    "Inner Richmond", 
+                    "San Francisco, CA 94118"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Inner Richmond"
+                ], 
+                "postal_code": "94118", 
+                "country_code": "US", 
+                "address": [
+                    "544 Clement"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7830442934418, 
+                    "longitude": -122.465241822931
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/cube-tea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 28, 
+            "name": "Cube Tea", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/cube-tea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ]
+            ], 
+            "menu_date_updated": 1464324684, 
+            "phone": "4153551188", 
+            "snippet_text": "Cute little shop. \n\nCame here thinking there was some kind of candy milk tea conjecture. There wasn't. But, we were still pleasantly surprised by the cute...", 
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/Oj0MWtwoMNWWahuGnxMwxQ/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/aR6vIAuWlNyDaniQ9nUq3g/ms.jpg", 
+            "display_phone": "+1-415-355-1188", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "menu_provider": "locu", 
+            "id": "cube-tea-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Octavia St & Laguna St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "488 Fell St", 
+                    "Hayes Valley", 
+                    "San Francisco, CA 94102"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Hayes Valley"
+                ], 
+                "postal_code": "94102", 
+                "country_code": "US", 
+                "address": [
+                    "488 Fell St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7756697, 
+                    "longitude": -122.4258294
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/t4-san-francisco-5?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 53, 
+            "name": "T4", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/t4-san-francisco-5?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ]
+            ], 
+            "phone": "4158185687", 
+            "snippet_text": "This place was initially occupied by Quickly, then Milk Tea on Fillmore, and eventually T4U. Since T4U moved in, I've gone to this place almost 3x a week!...", 
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/ga7E23K_MLd7XpuWN2dDpw/ms.jpg", 
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/ABh0hTL5Fz5WWhmbzlZn5Q/ms.jpg", 
+            "display_phone": "+1-415-818-5687", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "id": "t4-san-francisco-5", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Ofarrell St & Geary Blvd", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "1522 Fillmore St", 
+                    "Fillmore", 
+                    "San Francisco, CA 94115"
+                ], 
+                "geo_accuracy": 8.0, 
+                "neighborhoods": [
+                    "Fillmore", 
+                    "Western Addition"
+                ], 
+                "postal_code": "94115", 
+                "country_code": "US", 
+                "address": [
+                    "1522 Fillmore St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.78365, 
+                    "longitude": -122.43247
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.5, 
+            "mobile_url": "http://m.yelp.com/biz/teaspoon-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png", 
+            "review_count": 98, 
+            "name": "Teaspoon", 
+            "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png", 
+            "url": "http://www.yelp.com/biz/teaspoon-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Desserts", 
+                    "desserts"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Tea Rooms", 
+                    "tea"
+                ]
+            ], 
+            "menu_date_updated": 1462314625, 
+            "phone": "4158729245", 
+            "snippet_text": "After just one visit, I can declare Teaspoon as one of my favorite tea places, hands down. \n\nI got the Rose Petal Creama -- anyone who knows me knows I'm a...", 
+            "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/8MRkE6tX79vBJOxKfd58OQ/ms.jpg", 
+            "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/cBzK2Bp5B79YzH8rEManyw/ms.jpg", 
+            "display_phone": "+1-415-872-9245", 
+            "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png", 
+            "menu_provider": "eat24", 
+            "id": "teaspoon-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Broadway & Vallejo St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "2125 Polk St", 
+                    "Russian Hill", 
+                    "San Francisco, CA 94109"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Russian Hill"
+                ], 
+                "postal_code": "94109", 
+                "country_code": "US", 
+                "address": [
+                    "2125 Polk St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7963159707234, 
+                    "longitude": -122.421975955367
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.5, 
+            "mobile_url": "http://m.yelp.com/biz/fifty-fifty-coffee-and-tea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png", 
+            "review_count": 262, 
+            "name": "Fifty / Fifty Coffee and Tea", 
+            "rating_img_url_small": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/a5221e66bc70/ico/stars/v1/stars_small_4_half.png", 
+            "url": "http://www.yelp.com/biz/fifty-fifty-coffee-and-tea-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ]
+            ], 
+            "phone": "4156848886", 
+            "snippet_text": "I was walking to the post office with one of my friends, and we passed by this little gem. It was a hot day, and she suggested we stop by and get a drink....", 
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/LNLVWUDUoPTwpMxbM54jng/ms.jpg", 
+            "snippet_image_url": "http://s3-media3.fl.yelpcdn.com/photo/chi9z1egLl611aPRKcm8OQ/ms.jpg", 
+            "display_phone": "+1-415-684-8886", 
+            "rating_img_url_large": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/9f83790ff7f6/ico/stars/v1/stars_large_4_half.png", 
+            "id": "fifty-fifty-coffee-and-tea-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Cook St & Spruce St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "3157 Geary Blvd", 
+                    "Laurel Heights", 
+                    "San Francisco, CA 94118"
+                ], 
+                "geo_accuracy": 8.0, 
+                "neighborhoods": [
+                    "Laurel Heights", 
+                    "Inner Richmond"
+                ], 
+                "postal_code": "94118", 
+                "country_code": "US", 
+                "address": [
+                    "3157 Geary Blvd"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7814293, 
+                    "longitude": -122.4529495
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/super-cue-cafe-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 467, 
+            "name": "Super Cue Cafe", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/super-cue-cafe-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Desserts", 
+                    "desserts"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ]
+            ], 
+            "phone": "4155665888", 
+            "snippet_text": "I was told by another Yelper that the boba here is the most similar to the type they have in Taiwan. It was solid, but I didn't think it was anything...", 
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/HF7YprU8_tpTMpDgkFPvHg/ms.jpg", 
+            "snippet_image_url": "http://s3-media1.fl.yelpcdn.com/photo/ZuBY0c4pX4gJBip1jJb_tA/ms.jpg", 
+            "display_phone": "+1-415-566-5888", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "id": "super-cue-cafe-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "21st Ave & 22nd Ave", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "1139 Taraval St", 
+                    "Parkside", 
+                    "San Francisco, CA 94116"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Parkside"
+                ], 
+                "postal_code": "94116", 
+                "country_code": "US", 
+                "address": [
+                    "1139 Taraval St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7429212, 
+                    "longitude": -122.4782898
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": false, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/homeplate-boba-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 25, 
+            "name": "Homeplate Boba", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/homeplate-boba-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ]
+            ], 
+            "snippet_text": "Okay I already know that people are probably skeptical of this place because 1. who would want to get boba at a baseball stadium? Isn't it about the beer...", 
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/Jh_zDeKHgQlugyez9ixZdw/ms.jpg", 
+            "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/DHj4OrtR_QmWBUQi_e3big/ms.jpg", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "id": "homeplate-boba-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "city": "San Francisco", 
+                "display_address": [
+                    "131-155 King St", 
+                    "At&t Park", 
+                    "SoMa", 
+                    "San Francisco, CA 94107"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "SoMa", 
+                    "South Beach"
+                ], 
+                "postal_code": "94107", 
+                "country_code": "US", 
+                "address": [
+                    "131-155 King St", 
+                    "At&t Park"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7787070106078, 
+                    "longitude": -122.39015746224
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 3.5, 
+            "mobile_url": "http://m.yelp.com/biz/bobapioca-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png", 
+            "review_count": 59, 
+            "name": "Bobapioca", 
+            "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png", 
+            "url": "http://www.yelp.com/biz/bobapioca-san-francisco?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Ice Cream & Frozen Yogurt", 
+                    "icecream"
+                ]
+            ], 
+            "phone": "4156858593", 
+            "snippet_text": "I love horchata and I love boba tea, so when I saw the sign out front advertising this place's hybrid horchata boba...let's just say I practically ran...", 
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/3QKo4N9dsTSoUssdzpnEug/ms.jpg", 
+            "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/oJKjsHxikQ8hk_o48oo1xA/ms.jpg", 
+            "display_phone": "+1-415-685-8593", 
+            "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png", 
+            "id": "bobapioca-san-francisco", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Merchant St & Clay St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "708 Kearny Street", 
+                    "Financial District", 
+                    "San Francisco, CA 94108"
+                ], 
+                "geo_accuracy": 8.0, 
+                "neighborhoods": [
+                    "Financial District", 
+                    "Chinatown"
+                ], 
+                "postal_code": "94108", 
+                "country_code": "US", 
+                "address": [
+                    "708 Kearny Street"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7945183962584, 
+                    "longitude": -122.404739409685
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": true, 
+            "rating": 3.5, 
+            "mobile_url": "http://m.yelp.com/biz/boba-delight-san-francisco-6?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png", 
+            "review_count": 71, 
+            "name": "Boba Delight", 
+            "rating_img_url_small": "https://s3-media1.fl.yelpcdn.com/assets/2/www/img/2e909d5d3536/ico/stars/v1/stars_small_3_half.png", 
+            "url": "http://www.yelp.com/biz/boba-delight-san-francisco-6?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ], 
+                [
+                    "Gelato", 
+                    "gelato"
+                ]
+            ], 
+            "phone": "4153747933", 
+            "snippet_text": "My friend saw that this place sold glass jars and really wanted to buy one. (He did, he collects them.) Despite the fact that they were almost closing, the...", 
+            "image_url": "https://s3-media4.fl.yelpcdn.com/bphoto/Fo-Hv2jNGJkPMQ4wHjqmAw/ms.jpg", 
+            "snippet_image_url": "http://s3-media4.fl.yelpcdn.com/photo/nJN97WuJYzv2_KRjWxIubw/ms.jpg", 
+            "display_phone": "+1-415-374-7933", 
+            "rating_img_url_large": "https://s3-media3.fl.yelpcdn.com/assets/2/www/img/bd9b7a815d1b/ico/stars/v1/stars_large_3_half.png", 
+            "id": "boba-delight-san-francisco-6", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "Eddy St & Turk St", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "528 Larkin", 
+                    "Tenderloin", 
+                    "San Francisco, CA 94102"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Tenderloin"
+                ], 
+                "postal_code": "94102", 
+                "country_code": "US", 
+                "address": [
+                    "528 Larkin"
+                ], 
+                "coordinate": {
+                    "latitude": 37.782808, 
+                    "longitude": -122.417064
+                }, 
+                "state_code": "CA"
+            }
+        }, 
+        {
+            "is_claimed": false, 
+            "rating": 4.0, 
+            "mobile_url": "http://m.yelp.com/biz/bb-tea-station-san-francisco-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "rating_img_url": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png", 
+            "review_count": 210, 
+            "name": "BB Tea Station", 
+            "rating_img_url_small": "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/f62a5be2f902/ico/stars/v1/stars_small_4.png", 
+            "url": "http://www.yelp.com/biz/bb-tea-station-san-francisco-2?utm_campaign=yelp_api&utm_medium=api_v2_search&utm_source=H7pjkfSSXTJ52fQapgnXeA", 
+            "categories": [
+                [
+                    "Bubble Tea", 
+                    "bubbletea"
+                ], 
+                [
+                    "Coffee & Tea", 
+                    "coffee"
+                ]
+            ], 
+            "menu_date_updated": 1455452077, 
+            "phone": "4156815888", 
+            "snippet_text": "Saw BB Tea after eating at cafe bakery and decided to grab a drink. Looking over the top 10 just got me more confused on what to order.  I asked the cashier...", 
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/sD1ZYFZ2wp5bgRG_Bo9PEA/ms.jpg", 
+            "snippet_image_url": "http://s3-media2.fl.yelpcdn.com/photo/hnrU7wWpmrCb_Cg6xMdvng/ms.jpg", 
+            "display_phone": "+1-415-681-5888", 
+            "rating_img_url_large": "https://s3-media2.fl.yelpcdn.com/assets/2/www/img/ccf2b76faa2c/ico/stars/v1/stars_large_4.png", 
+            "menu_provider": "eat24", 
+            "id": "bb-tea-station-san-francisco-2", 
+            "is_closed": false, 
+            "location": {
+                "cross_streets": "21st Ave & 20th Ave", 
+                "city": "San Francisco", 
+                "display_address": [
+                    "1314 Noriega St", 
+                    "Outer Sunset", 
+                    "San Francisco, CA 94122"
+                ], 
+                "geo_accuracy": 9.5, 
+                "neighborhoods": [
+                    "Outer Sunset"
+                ], 
+                "postal_code": "94122", 
+                "country_code": "US", 
+                "address": [
+                    "1314 Noriega St"
+                ], 
+                "coordinate": {
+                    "latitude": 37.7542929, 
+                    "longitude": -122.4779253
+                }, 
+                "state_code": "CA"
+            }
+        }
+    ]
+}
+
+// About
+
+// About Yelp
+// Order Food on Eat24
+// Careers
+// Press
+// Investor Relations
+// Content Guidelines
+// Terms of Service
+// Privacy Policy
+// Ad Choices
+// Discover
+
+// The Weekly Yelp
+// Yelp Blog
+// Support
+// Yelp Mobile
+// Developers
+// RSS
+// Yelp for Business Owners
+
+// Claim your Business Page
+// Advert
+
+

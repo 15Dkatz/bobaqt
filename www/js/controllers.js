@@ -1,7 +1,7 @@
-angular.module('pardeezApp.controllers', [])
+angular.module('bobaqtApp.controllers', [])
 
 
-pardeezApp.controller('ListCtrl', ["$scope", "Items", function($scope, Items) {
+bobaqtApp.controller('ListCtrl', ["$scope", "Items", function($scope, Items) {
   $scope.items = Items;
   $scope.addItem = function() {
     console.log("attempting to add");
@@ -17,7 +17,7 @@ pardeezApp.controller('ListCtrl', ["$scope", "Items", function($scope, Items) {
 
 }]);
 
-pardeezApp.controller('ChatsCtrl', ["$scope", "Chats", "Items", function($scope, Chats, Items) {
+bobaqtApp.controller('ChatsCtrl', ["$scope", "Chats", "Items", function($scope, Chats, Items) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -35,7 +35,7 @@ pardeezApp.controller('ChatsCtrl', ["$scope", "Chats", "Items", function($scope,
 
 
 
-pardeezApp.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
+bobaqtApp.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
   $scope.chat = Chats.get($stateParams.chatId);
 });
 

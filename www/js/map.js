@@ -1,4 +1,4 @@
-pardeezApp.controller('MapCtrl', ["$scope", "$rootScope", "$cordovaGeolocation", "Events",  
+bobaqtApp.controller('MapCtrl', ["$scope", "$rootScope", "$cordovaGeolocation", "Events",  
   function($scope, $rootScope, $cordovaGeolocation, Events) {
   var options = {timeout: 10000, enableHighAccuracy: true};
   // import Events array, for each event, place a marker on the latLng

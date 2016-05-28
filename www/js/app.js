@@ -1,31 +1,32 @@
-// Ionic Starter App
+var bobaqtApp = angular.module('bobaqtApp', ['ionic', 'bobaqtApp.controllers', 'bobaqtApp.services', 'firebase', 'ngCordova']);
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-var pardeezApp = angular.module('pardeezApp', ['ionic', 'pardeezApp.controllers', 'pardeezApp.services', 'firebase', 'google.places', 'ngCordova'])
-.constant('SERVER', {
-    //url: 'https://myextsite.com/api/public/index.php/v1'
-    url: "https://maps.googleapis.com/maps/api/"
+// add security rules
+bobaqtApp.factory("Items", function($firebaseArray) {
+  var itemsRef = new Firebase("https://bobaqt.firebaseio.com/items");
+  return $firebaseArray(itemsRef);
 })
-
-// https://maps.googleapis.com/maps/api/place/details/json?
-// ;
-
-.factory("Events", function($firebaseArray) {
-  var eventsRef = new Firebase("https://pardeez.firebaseio.com/events");
-  return $firebaseArray(eventsRef);
-})
-pardeezApp.factory("Auth", function($firebaseAuth) {
-  var usersRef = new Firebase("https//pardeez.firebaseio.com/users");
+bobaqtApp.factory("Auth", function($firebaseAuth) {
+  var usersRef = new Firebase("https://bobaqt.firebaseio.com/users");
   return $firebaseAuth(usersRef);
 })
+// bobaqtApp.factory("Shops", function($http) {
+//   var ulrBase = "../json/shops.json";
+//   var shops = {};
+
+//   this.getShops = function() {
+//     $http.get("../json/shops.json")
+//     .then(function(res) {
+//       shops = res.data;
+//       return shops;
+//     })
+//   }
+
+//   return shops;
+// })
 
 
 
-pardeezApp.run(function($ionicPlatform) {
+bobaqtApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -41,7 +42,7 @@ pardeezApp.run(function($ionicPlatform) {
   });
 })
 
-pardeezApp.config(function($stateProvider, $urlRouterProvider) {
+bobaqtApp.config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -58,12 +59,12 @@ pardeezApp.config(function($stateProvider, $urlRouterProvider) {
 
   // Each tab has its own nav history stack:
 
-  .state('tab.events', {
-    url: '/events',
+  .state('tab.items', {
+    url: '/items',
     views: {
-      'tab-events': {
-        templateUrl: 'templates/tab-events.html',
-        controller: 'EventsCtrl'
+      'tab-items': {
+        templateUrl: 'templates/tab-items.html',
+        controller: 'ItemsCtrl'
       }
     }
   })
