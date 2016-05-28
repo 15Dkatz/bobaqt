@@ -1,71 +1,91 @@
 bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items",
 function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
 
-  $scope.shops;
-
+  $scope.cities;
+  $scope.items = Items;
 
   $http.get('../json/shops.json')
   .then(function(res){
-    $scope.shops = res.data;                
+    $scope.cities = res.data;                
   });
 
-  $scope.items = Items;
+  
 
   $scope.testButton = function() {
-    console.log("testing the shops object", $scope.shops);
+    console.log("testing the cities object", $scope.cities);
   }
 
 
-  $scope.updateCities = function(typed) {
 
-  }
-
-  $ionicModal.fromTemplateUrl('./templates/addItem-modal.html', {
+  $ionicModal.fromTemplateUrl('./templates/modals/cityToShop-md.html', {
       scope: $scope,
       animation: 'slide-in-up',
    }).then(function(modal) {
-      $scope.modal = modal;
+      $scope.modalCity = modal;
    });
 
+  $ionicModal.fromTemplateUrl('./templates/modals/shopToMenu-md.html', {
+      scope: $scope,
+      animation: 'slide-in-up',
+  }).then(function(modal) {
+      $scope.modalShop = modal;
+  });
 
-  // $scope.addEvent = function(event, place, time) {
-  //   // console.log($rootScope.displayName, "displayName");
-  //   if ($rootScope.displayName) {
-  //     event.owner = $rootScope.displayName;
-  //   } else {
-  //     event.owner = "anonymous";
-  //   }
-  //   if (event) {
-  //     // console.log("place", place);
-  //     event["location"] = place.name;
-  //     event["address"] = place.formatted_address;
-  //     // definitely need more festive pictures
-  //     event["icon"] = place.icon;
-  //     event["time"] = $filter('date')(new Date(time), "MM/dd/yyyy 'at' h:mma");
-  //     event["lat"] = place.geometry.location.lat();
-  //     event["lng"] = place.geometry.location.lng();
+  $ionicModal.fromTemplateUrl('./templates/modals/menuToItem-md.html', {
+      scope: $scope,
+      animation: 'slide-in-up',
+  }).then(function(modal) {
+      $scope.modalItem = modal;
+  });
 
-  //     // plenty of other options https://developers.google.com/maps/documentation/javascript/reference#PlaceResult
-  //     // formatted_phone_number, 
-  //     // icon
-  //     $scope.events.$add(event);
-  //   }
-  //   $scope.modal.hide();
-  //   console.log("event", event);
-  // };
 
-  $scope.openModal = function() {
-    $scope.modal.show();
+  $scope.cityData = {
+      selected: 'San Francisco'   
+  }
+
+  $scope.shopData = {
+      selected: 'TPumps'
+  }
+
+  $scope.testButton = function(selected) {
+    console.log("selected", selected);
+  }
+
+  $scope.openModal = function(option, selectedCity, selectedShop) {
+    if (option=='city') {
+      $scope.modalCity.show();
+    }
+    else if (option=='shop') { 
+      console.log("selectedCity", selectedCity);
+      $scope.selectedCity = selectedCity;
+      $scope.modalShop.show();
+    }
+    else if (option=='item') { 
+      console.log("selectedShop", selectedShop);
+      $scope.selectedShop = selectedShop;
+      $scope.modalItem.show();
+    }    
   };
 
   // cancel button to close modal
-  $scope.closeModal = function() {
-    $scope.modal.hide();
+  $scope.closeModal = function(option) {
+    //uncomment below to close modal one at a time.
+    // if (option=='city') {
+      $scope.modalCity.hide();
+    // }
+    // else if (option=='shop') {
+      $scope.modalShop.hide();
+    // }
+    // else if (option=='item') {
+      $scope.modalItem.hide();
+    // }    
   };
 
   //Cleanup the modal when we're done with it!
   $scope.$on('$destroy', function() {
-    $scope.modal.remove();
+    $scope.modalCity.remove();
+    $scope.modalShop.remove();
+    $scope.modalItem.remove();
   });
 
   // Execute action on hide modal
@@ -77,22 +97,5 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
   $scope.$on('modal.removed', function() {
     // Execute action
   });
-
-  // //debugging methods
-  // $scope.testLocation = function(place, time) {
-  //   console.log("place", place, "lat", place.geometry.location);
-  //   console.log("name", place.name);
-  //   console.log("lat", place.geometry.location.lat());
-  //   console.log("lng", place.geometry.location.lng());
-  //   var _date = $filter('date')(new Date(time), "MM/dd/yyyy 'at' h:mma");
-  //   console.log("_date", _date);
-  // }
-  // $scope.testTime = function(time) {
-  //   console.log("time", time, "type");
-  //   var _date = $filter('date')(new Date(time), "MM/dd/yyyy 'at' h:mma");
-  //   console.log("_date", _date);
-  //   // time.dateAsString = $filter('date')(item.date, "yyyy-MM-dd");
-
-  // }
 
 }]);

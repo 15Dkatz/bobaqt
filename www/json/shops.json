@@ -1,84 +1,108 @@
-{
-	"San Francisco": {
+[
+	{
 		"name": "San Francisco",
-		"shops" : {
-			"Tpumps": {
-				"flavors": [
-					"Strawberry",
-					"Mango",
-					"Green Apple",
-					"Tangerine",
-					"Blackberry",
-					"Cherry",
-					"Peach",
-					"Kiwi",
-					"Passion Fruit",
-					"Litchi",
-					"Red Bean",
-					"Taro",
-					"Honey",
-					"Almond",
-					"Chocolate",
-					"Peppermint",
-					"Cocunut",
-					"Honeydew",
-					"Pomegranate"
-				],
-				"toppings": [
-					"Honey Boba",
-					"Boba Bran",
-					"Red Bean",
-					"Taro",
-					"Orange Popping Boba",
-					"Strawberry Popping Boba",
-					"Litchi Popping Boba",
-					"Mango Popping Boba",
-					"Passion Fruit Popping Boba"
-				],
-				"sweetness": [
-					"100%",
-					"75%",
-					"50%",
-					"25%",
-					"None"
+		"shops" : [
+			{
+				"name": "Tpumps",
+				"menu": [
+					{
+						"name": "flavors",
+						"options": [
+							"Strawberry",
+							"Mango",
+							"Green Apple",
+							"Tangerine",
+							"Blackberry",
+							"Cherry",
+							"Peach",
+							"Kiwi",
+							"Passion Fruit",
+							"Litchi",
+							"Red Bean",
+							"Taro",
+							"Honey",
+							"Almond",
+							"Chocolate",
+							"Peppermint",
+							"Cocunut",
+							"Honeydew",
+							"Pomegranate"
+						]
+					},
+					{
+						"name": "toppings",
+						"options": [
+							"Honey Boba",
+							"Boba Bran",
+							"Red Bean",
+							"Taro",
+							"Orange Popping Boba",
+							"Strawberry Popping Boba",
+							"Litchi Popping Boba",
+							"Mango Popping Boba",
+							"Passion Fruit Popping Boba"
+						]
+					},
+					{
+						"name": "sweetness",
+						"options": [
+							"100%",
+							"75%",
+							"50%",
+							"25%",
+							"None"
+						]
+					}
 				]
 			},
-			"Boba Guys": {
-				"flavors": [
-					"Classic Milk Tea",
-					"Jasmine Milk Tea",
-					"Hong Kong Style",
-					"Horchata",
-					"Thai Tea",
-					"Iced Matcha Latte",
-					"Coffee Milk Tea",
-					"Muscat Oolong",
-					"Lyche Green Tea",
-					"Coconut Green Tea",
-					"Indian Chai",
-					"Duke of Earl Grey",
-					"Rose Black Tea",
-					"Golden Honey Black",
-					"Hojicha",
-					"Decaf Black",
-					"Chamomile Mint"
-				],
-				"toppings": [
-					"Tapioca Balls",
-					"Almond Jelly",
-					"Grass Jelly"
-				],
-				"sweetness": [
-					"100%",
-					"75%",
-					"50%",
-					"25%",
-					"None"
+			{
+				"name": "Boba Guys",
+				"menu": [
+					{
+						"name": "flavors",
+						"options": [
+							"Classic Milk Tea",
+							"Jasmine Milk Tea",
+							"Hong Kong Style",
+							"Horchata",
+							"Thai Tea",
+							"Iced Matcha Latte",
+							"Coffee Milk Tea",
+							"Muscat Oolong",
+							"Lyche Green Tea",
+							"Coconut Green Tea",
+							"Indian Chai",
+							"Duke of Earl Grey",
+							"Rose Black Tea",
+							"Golden Honey Black",
+							"Hojicha",
+							"Decaf Black",
+							"Chamomile Mint"
+						]
+					},
+					{
+						"name": "toppings",
+						"options": [
+							"Tapioca Balls",
+							"Almond Jelly",
+							"Grass Jelly"
+						]
+					},
+					{
+						"name": "sweetness",
+						"options": [
+							"100%",
+							"75%",
+							"50%",
+							"25%",
+							"None"
+						]
+					}
 				]
 			}
-		}
+		]
 	},
-	"San Jose": {
+	{
 		"name": "San Jose"
 	}
-}
+]

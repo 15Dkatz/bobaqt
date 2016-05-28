@@ -1,0 +1,28 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-calm">
+      <h1 class = "title bar-calm">{{selectedCity.name}}</h1>
+      <button class = "button button-icon icon-left ion-ios-close"
+         ng-click = "closeModal('shop')"></button>
+   </ion-header-bar>
+	
+   <ion-content>
+		<ion-list class="list">
+			<div class="bar bar-header item-input-inset">
+		        <label class="item-input-wrapper">
+		          <i class="icon ion-ios-search placeholder-icon"></i>
+		          <input type="search" placeholder="" ng-model="searchShop">
+		        </label>
+			</div>
+        	<ion-radio 
+            ng-repeat="shop in selectedCity | filter:searchShop"
+            ng-model="shopData.selected" ng-value="shop"
+            ng-click="openModal('item', selectedCity, shopData.selected)"
+          >
+        		{{shop.name}}
+        	</ion-radio>
+		</ion-list>
+    <button ng-click="testButton(shopData.selected)">
+        Test Button
+      </button>
+   </ion-content>
+</ion-modal-view>

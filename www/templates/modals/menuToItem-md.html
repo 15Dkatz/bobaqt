@@ -1,0 +1,25 @@
+<ion-modal-view>
+   <ion-header-bar class="bar-calm">
+      <h1 class = "title bar-calm">{{selectedShop.name}}</h1>
+      <button class = "button button-icon icon-left ion-ios-close"
+         ng-click = "closeModal('item')"></button>
+   </ion-header-bar>
+	
+   <ion-content>
+		<ion-list class="list" ng-repeat="option in selectedShop.menu">
+     <!--  <div class="item item-divider">
+        {{option.name}}
+      </div> -->
+			<div class="bar bar-header item-input-inset item-divider">
+		        <label class="item-input-wrapper">
+		          <i class="icon ion-ios-search placeholder-icon"></i>
+		          <input type="search" placeholder="{{option.name}}" ng-model="search">
+		        </label>
+			</div>
+      
+      	<ion-radio ng-repeat="item in option.options | filter:search">
+      		{{item}}
+      	</ion-radio>
+		</ion-list>
+   </ion-content>
+</ion-modal-view>
