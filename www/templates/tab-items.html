@@ -7,33 +7,31 @@
       </ion-nav-buttons>
   </ion-nav-bar>
   <ion-nav-title>
-    {{itemDisplayName}}
+    <!-- {{itemDisplayName}} -->
   </ion-nav-title>
   <ion-content>
     <ion-slides options="options" slider="data.slider">
       
-      <ion-slide-page ng-repeat="item in items" ng-model="selectedItem">
+      <ion-slide-page ng-repeat="item in items | orderBy : '-votes'" ng-model="selectedItem">
         <ion-content>
           <div class="list">
             <div class="item-icon-right bar bar-header item-input-inset item-divider">
-              {{item.votes}}
-              <i class="icon ion-fireball {{fireActive}}" ng-click="activateFire()"></i>
+              <i class="icon ion-fireball {{fireActive}}" ng-click="activateFire()"><span class="badge badge-assertive right">{{item.votes}}</span></i>
+              {{item.finalName}}
             </div>
             <div class="item">
               <span class="h3-4">Crafted by {{item.displayName}}</span>
+              <p>{{item.comments}}</p>
               <ion-list ng-repeat="option in item.menu">
                 <div class="h3-4">{{option.name}}</div>
                 <span ng-repeat="oitem in option.options | filter:{checked:true}"> {{oitem.name}}</span>
               </ion-list>
+              
             </div>
             <div class="item">
               <p>Order at {{item.name}}</p> <!--actually the name of the shop-->
               <p>{{item.address}}</p>
             </div>
-            <div class="item">
-              <p>{{item.comments}}</p>
-            </div>
-            
           </div>
         </ion-content>
       </ion-slide-page>

@@ -130,6 +130,12 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
     } else {
       item.displayName = "anonymous";
     }
+    if (item.comments==null) {
+      item.comments = "...";
+    }
+    if(item.finalName==null) {
+      item.finalName = "Nameless drink..."
+    }
     if (item) {
       item.votes = 0;
       $scope.items.$add(item);
@@ -185,14 +191,18 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
   $scope.$on("$ionicSlides.slideChangeStart", function(event, data){
     console.log('Slide change is beginning');
     $scope.fireActive = "";
+    $scope.$apply(function() {
+      $scope.fireActive = "";
+    })
+    console.log("fireActive", $scope.fireActive);
     // console.log($scope.slider.activeIndex);
     var index = $scope.slider.activeIndex;
     $scope.currentItem = $scope.items[index];
     // console.log("idn", $scope.itemDisplayName);
-    console.log($scope.items[index].finalName);
-    $scope.$apply(function() {
-      $scope.itemDisplayName = $scope.items[index].finalName;
-    })
+    // console.log($scope.items[index].finalName);
+    // $scope.$apply(function() {
+      // $scope.itemDisplayName = $scope.items[index].finalName;
+    // })
   });
 
   $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
@@ -205,3 +215,5 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
 
 // prevent FireVoting and itemAdding if the user is not authenticated
 // fix updating title
+// figure out orderBy function
+// add Generate QR code method, and pick pictures of Boba to select
