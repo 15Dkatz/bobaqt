@@ -15,20 +15,12 @@
       <ion-slide-page ng-repeat="item in items" ng-model="selectedItem">
         <ion-content>
           <div class="list">
-
-            <div class="">
-              <div class="bar bar-header item-input-inset item-divider">
-                QT Fire
-              </div>
-              <div class="item item-icon-right">
-                {{item.votes}}
-                <i class="icon ion-fireball {{fireActive}}" ng-click="activateFire()"></i>
-              </div>
-            </div>
-            <div class="bar bar-header item-input-inset item-divider">
-              {{item.finalName}}<span class="badge rightBadge item-note">by {{item.displayName}} </span>
+            <div class="item-icon-right bar bar-header item-input-inset item-divider">
+              {{item.votes}}
+              <i class="icon ion-fireball {{fireActive}}" ng-click="activateFire()"></i>
             </div>
             <div class="item">
+              <span class="h3-4">Crafted by {{item.displayName}}</span>
               <ion-list ng-repeat="option in item.menu">
                 <div class="h3-4">{{option.name}}</div>
                 <span ng-repeat="oitem in option.options | filter:{checked:true}"> {{oitem.name}}</span>

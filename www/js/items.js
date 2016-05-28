@@ -5,7 +5,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
   $scope.items = Items;
   $scope.itemDisplayName = '';
 
-  console.log("idn", $scope.itemDisplayName);
+  // console.log("idn", $scope.itemDisplayName);
 
   $http.get('./json/shops.json')
   .then(function(res){
@@ -167,50 +167,39 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
     console.log("fireActive", $scope.fireActive);
   }
 
+
+  var itemsList = [];
   $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
     // data.slider is the instance of Swiper
     $scope.slider = data.slider;
     var index = $scope.slider.activeIndex;
-    // $scope.$apply(function() {
-      // $scope.itemDisplayName = $scope.items[index].finalName;
-    // })
-    console.log("index", index);
-    console.log($scope.items);
+    // console.log("index", index);
+    // console.log($scope.items[index], "factoryMethod");
 
-    var itemsList = [];
-    // ugly Hack
-    var itemRef = new Firebase("https://bobaqt.firebaseio.com/");
-    if (itemRef) {
-      itemRef.once("value", function(snapshot) {
-        if (snapshot.exists()) {
-          itemsList = snapshot.val()["items"];
-          console.log("itemsList", itemslist);
-        }
-      })
-    }
+    
+    // change top Item to actual display Name
+    $scope.itemDisplayName = "Top Item";
   });
 
-  // $scope.itemDisplayName = $scope.items[0].name;
+  
   $scope.$on("$ionicSlides.slideChangeStart", function(event, data){
     console.log('Slide change is beginning');
+    $scope.fireActive = "";
     // console.log($scope.slider.activeIndex);
     var index = $scope.slider.activeIndex;
-    $scope.$apply(function() {
-      $scope.itemDisplayName = $scope.items[index].finalName;
-    })
-    
-
-    
-
     $scope.currentItem = $scope.items[index];
     // console.log("idn", $scope.itemDisplayName);
     console.log($scope.items[index].finalName);
+    $scope.$apply(function() {
+      $scope.itemDisplayName = $scope.items[index].finalName;
+    })
   });
 
   $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
     // note: the indexes are 0-based
     $scope.activeIndex = data.activeIndex;
     $scope.previousIndex = data.previousIndex;
+
   });
 }]);
 

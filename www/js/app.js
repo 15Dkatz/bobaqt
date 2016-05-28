@@ -3,7 +3,16 @@ var bobaqtApp = angular.module('bobaqtApp', ['ionic', 'bobaqtApp.controllers', '
 // add security rules
 bobaqtApp.factory("Items", function($firebaseArray) {
   var itemsRef = new Firebase("https://bobaqt.firebaseio.com/items");
-  return $firebaseArray(itemsRef);
+  // itemsRef.firstItem = function() {
+  //   console.log("first item");
+  // }
+  var itemsArray = $firebaseArray(itemsRef);
+
+  // change rootScope
+  // console.log(itemsArray.$keyAt(0));
+
+
+  return itemsArray;
 })
 bobaqtApp.factory("Auth", function($firebaseAuth) {
   var usersRef = new Firebase("https://bobaqt.firebaseio.com/users");
