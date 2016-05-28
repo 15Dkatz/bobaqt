@@ -1,4 +1,4 @@
-bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", 
+bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items",
 function($scope, $rootScope, $http, $filter, $ionicModal, Items) {
 
   $scope.shops;
