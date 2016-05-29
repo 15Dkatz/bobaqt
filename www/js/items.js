@@ -213,6 +213,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
   });
 }]);
 
+// fix styling of fire buttons
 // prevent FireVoting and itemAdding if the user is not authenticated
 // fix updating title
 // figure out orderBy function

@@ -74,7 +74,7 @@
 								"checked": false
 							},
 							{
-								"name": "Cocunut",
+								"name": "Coconut",
 								"checked": false
 							},
 							{
@@ -162,41 +162,116 @@
 					{
 						"name": "flavors",
 						"options": [
-							"Classic Milk Tea",
-							"Jasmine Milk Tea",
-							"Hong Kong Style",
-							"Horchata",
-							"Thai Tea",
-							"Iced Matcha Latte",
-							"Coffee Milk Tea",
-							"Muscat Oolong",
-							"Lyche Green Tea",
-							"Coconut Green Tea",
-							"Indian Chai",
-							"Duke of Earl Grey",
-							"Rose Black Tea",
-							"Golden Honey Black",
-							"Hojicha",
-							"Decaf Black",
-							"Chamomile Mint"
+							{
+								"name": "Classic Milk Tea",
+								"checked": false
+							},
+							{
+								"name": "Jasmine Milk Tea",
+								"checked": false
+							},
+							{
+								"name": "Hong Kong Style",
+								"checked": false
+							},
+							{
+								"name": "Horchata",
+								"checked": false
+							},
+							{
+								"name": "Thai Tea",
+								"checked": false
+							},
+							{
+								"name": "Iced Matcha Latte",
+								"checked": false
+							},
+							{
+								"name": "Coffee Milk Tea",
+								"checked": false
+							},
+							{
+								"name": "Muscat Oolong",
+								"checked": false
+							},
+							{
+								"name": "Lychee Green Tea",
+								"checked": false
+							},
+							{
+								"name": "Coconut Green Tea",
+								"checked": false
+							},
+							{
+								"name": "Indian Chai",
+								"checked": false
+							},
+							{
+								"name": "Duke of Earl Grey",
+								"checked": false
+							},
+							{
+								"name": "Rose Black Tea",
+								"checked": false
+							},
+							{
+								"name": "Golden Honey Black",
+								"checked": false
+							},
+							{
+								"name": "Hojicha",
+								"checked": false
+							},
+							{
+								"name": "Decaf Black",
+								"checked": false
+							},
+							{
+								"name": "Chamomile Mint",
+								"checked": false
+							}
 						]
 					},
 					{
 						"name": "toppings",
 						"options": [
-							"Tapioca Balls",
-							"Almond Jelly",
-							"Grass Jelly"
+							{
+								"name": "Tapioca Balls",
+								"checked": false
+							},
+							{
+								"name": "Almond Jelly",
+								"checked": false
+							},
+							{
+								"name": "Grass Jelly",
+								"checked": false
+							}
 						]
 					},
 					{
 						"name": "sweetness",
 						"options": [
-							"100%",
-							"75%",
-							"50%",
-							"25%",
-							"None"
+							{
+								"name": "100%",
+								"checked": false
+							},
+							{
+								"name": "75%",
+								"checked": false
+							},
+							{
+								"name": "50%",
+								"checked": false
+							},
+							{
+								"name": "25%",
+								"checked": false
+							},
+							{
+								"name": "None",
+								"checked": false
+							}
 						]
 					}
 				]
