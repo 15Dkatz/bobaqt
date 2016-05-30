@@ -72,3 +72,38 @@ ion-slides{
 .title {
 	font-size: 1.16rem;
 }
+
+
+.warningMessage {
+	position: fixed;
+	bottom: 7%; /* Adjust height */
+	right: 0%;  /* Adjust position */
+	/*margin-left: 50%;*/
+	/*transform: translateX(-50%);*/
+	/*margin-left: 25%;*/
+	/*background-color: #000;*/
+	/*right: 6%;*/
+	/*font-size: 10rem;*/
+	-webkit-animation: pulsate 25s ease-in;
+    /*-webkit-animation-iteration-count: 4;*/
+	-webkit-filter: opacity(0);
+  	/*filter: opacity(.4); */
+}
+
+
+@-webkit-keyframes pulsate {
+	0% {
+        /*-webkit-transform: scale(0.1, 0.1);*/
+		-webkit-filter: opacity(.9);
+  		filter: opacity(.9); 
+	}
+	50% {
+		-webkit-filter: opacity(.5);
+  		filter: opacity(.5); 
+	}
+	100% {
+	/* -webkit-transform: scale(1, 1); */
+		-webkit-filter: opacity(.1);
+  		filter: opacity(.1); 
+	}
+}

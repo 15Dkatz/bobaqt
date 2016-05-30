@@ -7,39 +7,46 @@
   </ion-nav-bar>
   <ion-nav-title>
     Drinks
-    <!-- {{itemDisplayName}} -->
   </ion-nav-title>
   <ion-content>
     <div class="list">
-      <div class="item" ng-show="warningMessageBool">
-        {{warningMessage}}
+      <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+              <i class="icon ion-ios-search placeholder-icon"></i>
+              <input type="search" placeholder="" ng-model="searchDrink">
+            </label>
       </div>
-      <!-- <ion-slide-page ng-repeat="item in items | orderBy : '-votes'" ng-model="selectedItem"> -->
-      <div ng-repeat="item in items | orderBy : '-votes' track by $index" ng-model="selectedItem" class="item">
+      <div ng-repeat="item in items | filter:searchDrink | orderBy : '-votes' track by $index" ng-model="selectedItem" class="item">
         <div class="list">
-          <div class="item-icon-right item item-divider bar-stable">
+          <div class="item-icon-right item item-divider">
             <strong>{{item.finalName}}</strong>
             <i class="icon ion-fireball {{localItems[$index].fireFill}}" ng-click="activateFire($index)"><span class="assertive right">{{item.votes}}</span></i>
           </div>
           <div class="item item-text-wrap">
             <src={{google.}}>
-            <span class="h3-4">Crafted by {{item.displayName}}</span>
-            <p>{{item.comments}}</p>
             <ion-list ng-repeat="option in item.menu">
               <div class="h3-4">{{option.name}}</div>
               <span ng-repeat="oitem in option.options | filter:{checked:true}"> {{oitem.name}}</span>
             </ion-list>
             
           </div>
-          <div class="item">
-            <p>Order at {{item.name}}</p>
+          <div class="item item-text-wrap">
+            <span class="h3-4">Order at {{item.name}}</span>
             <!--actually the name of the shop-->
             <p>{{item.address}}</p>
+            <span class="h3-4">Crafted by {{item.displayName}}</span>
+            <p>{{item.comments}}</p>
           </div>
         </div>
       </div>
+
     </div>
+    
   </ion-content>
+  <div class="warningMessage item" ng-show="warningMessageBool">
+  <!-- <div class="warningMessage item"> -->
+    {{warningMessage}}
+  </div>
 </ion-view>
 
 
