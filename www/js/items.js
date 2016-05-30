@@ -1,5 +1,5 @@
-bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$ionicSlideBoxDelegate", "TDCardDelegate", "$timeout", "Users",
-function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate, $timeout, Users) {
+bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$timeout", "Users",
+function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users) {
 
   $scope.cities;
   $scope.items = Items;
