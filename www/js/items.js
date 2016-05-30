@@ -5,21 +5,12 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
   $scope.items = Items;
   $scope.itemDisplayName = '';
   $scope.users = Users;
-  // console.log("idn", $scope.itemDisplayName);
   var fireFillSet = [];
 
   $http.get('./json/shops.json')
   .then(function(res){
     $scope.cities = res.data;
     $rootScope.warningMessageBool = false;
-    // creating a collection of broken fires to make sure you reset the 
-    // // fireFill to blank every time, in case you have leftover activation.
-    // for (var r=0; r<3; r++) {
-    //   fireFillSet[r] = {
-    //     pressed: false
-    //   }
-    // }
-
   });
 
   $ionicModal.fromTemplateUrl('./templates/modals/cityToShop-md.html', {
@@ -160,7 +151,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
   }
 
   // set all to inactive fire
-  // change to mergeSory to speed up efficiency.
+  // change to mergeSort in the future to speed up efficiency.
   var bubbleSort = function(array) {
     console.log("attempting sort");
     var swapped;
@@ -216,24 +207,11 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
   }
 
 
-
-  
-
-
   var postActivateFire = function(index) {
     // console.log("rootScope.userId", $rootScope.authData.uid);
     $scope.items = bubbleSort($scope.items);
     $scope.localItems = $scope.items;
 
-    // console.log("")
-
-    // if (fireFillSet[index].pressed==false) {
-    //   fireFillSet[index].pressed=true;
-    //   $scope.localItems[index].fireFill = "";
-    // }
-    
-    
-    
     $scope.currentItem = $scope.items[index];
     if ($scope.fireFill=="") {
       $scope.currentItem.votes += 1;

@@ -30,7 +30,13 @@ bobaqtApp.factory("Users", function($firebaseArray) {
 //   return shops;
 // })
 
-
+bobaqtApp.filter('nameMatch', function(){
+  return function(input, name1, name2){
+    if (name1==name2) {
+      return input;
+    }
+  }
+})
 
 bobaqtApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
