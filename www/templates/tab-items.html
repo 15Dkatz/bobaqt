@@ -20,7 +20,10 @@
         <div class="list">
           <div class="item item-icon-right bar-header itemStable">
             <strong class="fireTitle">{{item.finalName}}</strong>
-            <i class="icon ion-fireball {{localItems[$index].fireFill}}" ng-click="activateFire($index)"><span class="assertive right itemVotes">{{item.votes}}</span></i>
+            <span class="fireRight">
+              <i class="ion-fireball fireballIcon {{localItems[$index].fireFill}}" ng-click="activateFire($index)"></i>
+              <span class="assertive right itemVotes">{{item.votes}}</span>
+            </span> 
           </div>
           <div class="item item-text-wrap itemEnergized">
             <src={{google.}}>
