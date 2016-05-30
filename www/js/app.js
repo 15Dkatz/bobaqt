@@ -1,4 +1,4 @@
-var bobaqtApp = angular.module('bobaqtApp', ['ionic', 'bobaqtApp.controllers', 'bobaqtApp.services', 'firebase', 'ngCordova', 'ion-autocomplete']);
+var bobaqtApp = angular.module('bobaqtApp', ['ionic', 'bobaqtApp.controllers', 'bobaqtApp.services', 'firebase', 'ngCordova', 'ionic.contrib.ui.tinderCards2']);
 
 // add security rules
 bobaqtApp.factory("Items", function($firebaseArray) {

@@ -1,5 +1,5 @@
-bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$ionicSlideBoxDelegate",
-function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxDelegate) {
+bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$ionicSlideBoxDelegate", "TDCardDelegate", "$timeout", 
+function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate, $timeout) {
 
   $scope.cities;
   $scope.items = Items;
@@ -10,7 +10,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
   $http.get('./json/shops.json')
   .then(function(res){
     $scope.cities = res.data;
-    $scope.itemDisplayName = $scope.items[0];       
+    $scope.itemDisplayName = $scope.items[0];
   });
 
   $ionicModal.fromTemplateUrl('./templates/modals/cityToShop-md.html', {
@@ -136,6 +136,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
     if(item.finalName==null) {
       item.finalName = "Nameless drink..."
     }
+    item.fireFill = "";
     if (item) {
       item.votes = 0;
       $scope.items.$add(item);
@@ -151,66 +152,55 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $ionicSlideBoxD
 
   // var index = $scope.slider.activeIndex;
   $scope.currentItem = $scope.items[0];
-
-  // $scope.currentItem  
-
   $scope.fireActive = "";
 
-  $scope.activateFire = function() {
-    var index = $scope.slider.activeIndex;
+
+  $scope.localItems = $scope.items;
+
+  // set all to inactive fire
+  // change to mergeSory to speed up efficiency.
+  var bubbleSort = function(array) {
+    console.log("attempting sort");
+    var swapped;
+    var swappedList = array;
+    do {
+      swapped = false;
+      for (var s=0; s<swappedList.length-1; s++) {
+        if (swappedList[s].votes < swappedList[s+1].votes) {
+          var temp = swappedList[s];
+          swappedList[s] = swappedList[s+1];
+          swappedList[s+1] = temp;
+          swapped = true;
+        }
+      }
+    } while (swapped);
+    array = swappedList;
+    $scope.items.$save(array);
+    return array
+  }
+
+  $scope.activateFire = function(index) {
+    // var index = $scope.slider.activeIndex;
+    $scope.items = bubbleSort($scope.items);
+
     $scope.currentItem = $scope.items[index];
     if ($scope.fireActive=="") {
-      $scope.fireActive = "assertive";
       $scope.currentItem.votes += 1;
-      console.log($scope.items);
+      $scope.fireActive = "assertive";
+      $scope.items[index].fireFill = "assertive";
+      // console.log($scope.items);
     } else {
-      $scope.fireActive = "";
       $scope.currentItem.votes -= 1;
+      $scope.fireActive = "";
+      $scope.items[index].fireFill = ""; 
     }
-
     // later prevent fire checking if authenticated
-    $scope.items.$save($scope.currentItem);
-    console.log("fireActive", $scope.fireActive);
+    $scope.items.$save($scope.currentItem.votes);
+    // console.log("fireActive", $scope.fireActive);
   }
 
 
-  var itemsList = [];
-  $scope.$on("$ionicSlides.sliderInitialized", function(event, data){
-    // data.slider is the instance of Swiper
-    $scope.slider = data.slider;
-    var index = $scope.slider.activeIndex;
-    // console.log("index", index);
-    // console.log($scope.items[index], "factoryMethod");
 
-    
-    // change top Item to actual display Name
-    $scope.itemDisplayName = "Top Item";
-  });
-
-  
-  $scope.$on("$ionicSlides.slideChangeStart", function(event, data){
-    console.log('Slide change is beginning');
-    $scope.fireActive = "";
-    $scope.$apply(function() {
-      $scope.fireActive = "";
-    })
-    console.log("fireActive", $scope.fireActive);
-    // console.log($scope.slider.activeIndex);
-    var index = $scope.slider.activeIndex;
-    $scope.currentItem = $scope.items[index];
-    // console.log("idn", $scope.itemDisplayName);
-    // console.log($scope.items[index].finalName);
-    // $scope.$apply(function() {
-      // $scope.itemDisplayName = $scope.items[index].finalName;
-    // })
-  });
-
-  $scope.$on("$ionicSlides.slideChangeEnd", function(event, data){
-    // note: the indexes are 0-based
-    $scope.activeIndex = data.activeIndex;
-    $scope.previousIndex = data.previousIndex;
-
-  });
 }]);
 
 // fix styling of fire buttons

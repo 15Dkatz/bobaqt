@@ -10,32 +10,32 @@
     <!-- {{itemDisplayName}} -->
   </ion-nav-title>
   <ion-content>
-    <ion-slides options="options" slider="data.slider">
+    <div class="list">
       
-      <ion-slide-page ng-repeat="item in items | orderBy : '-votes'" ng-model="selectedItem">
-        <ion-content>
-          <div class="list">
-            <div class="item-icon-right bar bar-header item-input-inset item-divider">
-              <i class="icon ion-fireball {{fireActive}}" ng-click="activateFire()"><span class="badge badge-assertive right">{{item.votes}}</span></i>
-              {{item.finalName}}
-            </div>
-            <div class="item">
-              <span class="h3-4">Crafted by {{item.displayName}}</span>
-              <p>{{item.comments}}</p>
-              <ion-list ng-repeat="option in item.menu">
-                <div class="h3-4">{{option.name}}</div>
-                <span ng-repeat="oitem in option.options | filter:{checked:true}"> {{oitem.name}}</span>
-              </ion-list>
-              
-            </div>
-            <div class="item">
-              <p>Order at {{item.name}}</p> <!--actually the name of the shop-->
-              <p>{{item.address}}</p>
-            </div>
+      <!-- <ion-slide-page ng-repeat="item in items | orderBy : '-votes'" ng-model="selectedItem"> -->
+      <div ng-repeat="item in items | orderBy : '-votes' track by $index" ng-model="selectedItem" class="item">
+        <div class="list">
+          <div class="item-icon-right item item-divider bar-stable">
+            <strong>{{item.finalName}}</strong>
+            <i class="icon ion-fireball {{item.fireFill}}" ng-click="activateFire($index)"><span class="assertive right">{{item.votes}}</span></i>
           </div>
-        </ion-content>
-      </ion-slide-page>
-    </ion-slides>
+          <div class="item item-text-wrap">
+            <span class="h3-4">Crafted by {{item.displayName}}</span>
+            <p>{{item.comments}}</p>
+            <ion-list ng-repeat="option in item.menu">
+              <div class="h3-4">{{option.name}}</div>
+              <span ng-repeat="oitem in option.options | filter:{checked:true}"> {{oitem.name}}</span>
+            </ion-list>
+            
+          </div>
+          <div class="item">
+            <p>Order at {{item.name}}</p>
+            <!--actually the name of the shop-->
+            <p>{{item.address}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
 
