@@ -150,13 +150,6 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
     speed: 50,
   }
 
-  // var index = $scope.slider.activeIndex;
-  $scope.currentItem = $scope.items[0];
-  $scope.fireActive = "";
-
-
-  $scope.localItems = $scope.items;
-
   // set all to inactive fire
   // change to mergeSory to speed up efficiency.
   var bubbleSort = function(array) {
@@ -179,27 +172,24 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
     return array
   }
 
+  $scope.currentItem = $scope.items[0];
+  $scope.fireFill = "";
   $scope.activateFire = function(index) {
-    // var index = $scope.slider.activeIndex;
+    $scope.localItems = $scope.items;
     $scope.items = bubbleSort($scope.items);
 
     $scope.currentItem = $scope.items[index];
-    if ($scope.fireActive=="") {
+    if ($scope.fireFill=="") {
       $scope.currentItem.votes += 1;
-      $scope.fireActive = "assertive";
-      $scope.items[index].fireFill = "assertive";
-      // console.log($scope.items);
+      $scope.fireFill = "assertive";
+      $scope.localItems[index].fireFill = "assertive";
     } else {
       $scope.currentItem.votes -= 1;
-      $scope.fireActive = "";
-      $scope.items[index].fireFill = ""; 
+      $scope.fireFill = "";
+      $scope.localItems[index].fireFill = "";
     }
-    // later prevent fire checking if authenticated
-    $scope.items.$save($scope.currentItem.votes);
-    // console.log("fireActive", $scope.fireActive);
+    $scope.items.$save($scope.currentItem);
   }
-
-
 
 }]);
 

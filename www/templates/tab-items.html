@@ -17,9 +17,10 @@
         <div class="list">
           <div class="item-icon-right item item-divider bar-stable">
             <strong>{{item.finalName}}</strong>
-            <i class="icon ion-fireball {{item.fireFill}}" ng-click="activateFire($index)"><span class="assertive right">{{item.votes}}</span></i>
+            <i class="icon ion-fireball {{localItems[$index].fireFill}}" ng-click="activateFire($index)"><span class="assertive right">{{item.votes}}</span></i>
           </div>
           <div class="item item-text-wrap">
+            <src={{google.}}>
             <span class="h3-4">Crafted by {{item.displayName}}</span>
             <p>{{item.comments}}</p>
             <ion-list ng-repeat="option in item.menu">
