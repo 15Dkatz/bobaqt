@@ -3,7 +3,10 @@
   font-family: "char-bb";
 	src: url("../fonts/char-bb/charbb_reg.ttf") format("truetype");
 }
-
+@font-face {
+  font-family: "fauna";
+	src: url("../fonts/fauna/fauna.ttf") format("truetype");
+}
 /*html {
 	font-family: "char-bb";
 }*/
@@ -132,4 +135,21 @@ ion-slides{
 .vertCenter {
 	margin-top: 50%;
 	transform: translateY(-50%);
+}
+
+.fireTitle {
+	font-family: "fauna";
+	font-size: .9rem;
+	/*font-weight: ;*/
+}
+
+.fireTitleLarge {
+	font-family: "fauna";
+	font-size: 1.08rem;
+	font-weight: bold;
+}
+
+.accountIcon {
+	font-size: .8rem;
+	margin-right: -5%;
 }

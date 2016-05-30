@@ -7,6 +7,12 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
   $scope.users = Users;
   var fireFillSet = [];
 
+  // ideally this would access on online json database that I could update myself in order to prevent having to update every time in order to add more stores
+  // figure out how to allow cross origin access on a github gist
+  // in the meantime, access via myjson.com
+  // but after every change you need to change this link
+  // $http.get('http://davidtkatz.com/js/shops.json')
+  // <script src="https://gist.github.com/15Dkatz/9ddca91496f8e79a0bb5f704f92cea71.js"></script>
   $http.get('./json/shops.json')
   .then(function(res){
     $scope.cities = res.data;

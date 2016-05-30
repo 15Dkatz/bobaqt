@@ -1,6 +1,6 @@
 <ion-view view-title="Account">
-	<ion-nav-title>
-		{{displayName}}
+	<ion-nav-title class="fireTitle">
+		<strong>{{displayName}}</strong>
 	</ion-nav-title>
   <ion-content class="itemStable">
   	<div class="card" ng-hide="authedBool">
@@ -13,21 +13,23 @@
 		  	</ion-item>
 			</ion-list>
 		</div>
-		<div ng-hide="!authedBool">
+		<!-- <div ng-hide="!authedBool"> -->
+
 			<div>
 				<img src="{{profSrc}}" alt="" class="profImg center">
 			</div>
 			<div class="list">
 			<div class="item item-divider">
-				<strong><h4>&nbsp;Drinks</h4></strong>
+				<strong><h4 class="fireTitle">&nbsp;Drinks</h4></strong>
 			</div>
-
 			<!-- fix custom filter! -->
 			<div ng-repeat="item in items | filter:displayName | orderBy : '-votes' track by $index" class="item item-icon-right">
-            <span>{{item.finalName}}</span>
-            <span class="badge assertive">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
+            <span class="fireTitle">{{item.finalName}}</span>
+            <span class="badge assertive accountIcon">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
         </div>
-        <div class="item">
+        <div class="item item-icon-right">
+        	<a href="#/tab/items"><i class="icon badge ion-forward">
+        	</i></a>
         	<p>Post a drink to the fire page!</p>
         </div>
 			</div>
