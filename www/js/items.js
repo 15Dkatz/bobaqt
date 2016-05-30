@@ -200,7 +200,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
       $scope.warningMessage = "";
       $rootScope.warningMessageBool = false;
     } else {
-      $scope.warningMessage = "Please sign in.";
+      $scope.warningMessage = "Please sign in to add fire";
       $rootScope.warningMessageBool = true;
       console.log("wm", $scope.warningMessage);
     }

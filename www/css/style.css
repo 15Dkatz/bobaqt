@@ -128,3 +128,8 @@ ion-slides{
 	font-size: 1.72rem;
 	/*font-weight: bold;*/
 }
+
+.vertCenter {
+	margin-top: 50%;
+	transform: translateY(-50%);
+}
