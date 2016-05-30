@@ -1,5 +1,12 @@
 /* Empty. Add your own CSS if you like */
+@font-face {
+  font-family: "char-bb";
+	src: url("../fonts/char-bb/charbb_reg.ttf") format("truetype");
+}
 
+/*html {
+	font-family: "char-bb";
+}*/
 
 .button-padding {
 	padding-right: 2%;
@@ -12,12 +19,12 @@
 }
 
 .scroll {
-    height: 100%;
+  height: 100%;
 }
  
 #map {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .backgroundImg {
@@ -84,7 +91,7 @@ ion-slides{
 	/*background-color: #000;*/
 	/*right: 6%;*/
 	/*font-size: 10rem;*/
-	-webkit-animation: pulsate 25s ease-in;
+	-webkit-animation: pulsate 16s ease-in;
     /*-webkit-animation-iteration-count: 4;*/
 	-webkit-filter: opacity(0);
   	/*filter: opacity(.4); */
@@ -106,4 +113,18 @@ ion-slides{
 		-webkit-filter: opacity(.1);
   		filter: opacity(.1); 
 	}
+}
+
+.itemStable {
+	background-color: #f2f2f2;
+}
+
+/*.itemEnergized {
+	background-color: #F7F7F7;
+}*/
+
+.itemVotes {
+	font-family: "char-bb";
+	font-size: 1.72rem;
+	/*font-weight: bold;*/
 }

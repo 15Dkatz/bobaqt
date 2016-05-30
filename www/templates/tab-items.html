@@ -18,11 +18,11 @@
       </div>
       <div ng-repeat="item in items | filter:searchDrink | orderBy : '-votes' track by $index" ng-model="selectedItem" class="item">
         <div class="list">
-          <div class="item-icon-right item item-divider">
+          <div class="item item-icon-right bar-header itemStable">
             <strong>{{item.finalName}}</strong>
-            <i class="icon ion-fireball {{localItems[$index].fireFill}}" ng-click="activateFire($index)"><span class="assertive right">{{item.votes}}</span></i>
+            <i class="icon ion-fireball {{localItems[$index].fireFill}}" ng-click="activateFire($index)"><span class="assertive right itemVotes">{{item.votes}}</span></i>
           </div>
-          <div class="item item-text-wrap">
+          <div class="item item-text-wrap itemEnergized">
             <src={{google.}}>
             <ion-list ng-repeat="option in item.menu">
               <div class="h3-4">{{option.name}}</div>
@@ -39,14 +39,15 @@
           </div>
         </div>
       </div>
-
     </div>
-    
   </ion-content>
-  <div class="warningMessage item" ng-show="warningMessageBool">
-  <!-- <div class="warningMessage item"> -->
-    {{warningMessage}}
+  <div ng-show="warningMessageBool">
+    <div class="warningMessage item">
+    <!-- <div class="warningMessage item"> -->
+      {{warningMessage}}
+    </div>
   </div>
+  
 </ion-view>
 
 

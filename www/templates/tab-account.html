@@ -2,10 +2,7 @@
 	<ion-nav-title>
 		{{displayName}}
 	</ion-nav-title>
-  <ion-content>
-  	<div>
-  		<!-- <img src="img/partyBackground.jpeg" alt="" class="backgroundImg"> -->
-  	</div>
+  <ion-content class="itemStable">
   	<div class="card" ng-hide="authedBool">
 	    <ion-list class="list">
 			 	<ion-item class="item" ng-click="gglogin()">
@@ -21,35 +18,18 @@
 				<img src="{{profSrc}}" alt="" class="profImg center">
 			</div>
 			<div class="list">
-			<div class="bar-stable bar">
+			<div class="item item-divider">
 				<strong><h4>&nbsp;Drinks</h4></strong>
-			</div>
-			<div class="item">
-				
 			</div>
 
 			<!-- fix custom filter! -->
-			<div ng-repeat="item in items | filter:displayName | orderBy : '-votes' track by $index" ng-model="selectedItem" class="item item-icon-right">
-        <!-- <div class="list"> -->
-          <!-- <div class="item-icon-right item"> -->
+			<div ng-repeat="item in items | filter:displayName | orderBy : '-votes' track by $index" class="item item-icon-right">
             <span>{{item.finalName}}</span>
-            <i class="icon ion-fireball {{localItems[$index].fireFill}}" ng-click="activateFire($index)"><span class="assertive right">{{item.votes}}</span></i>
-          <!-- </div> -->
-<!--           <div class="item item-text-wrap">
-            <src={{google.}}>
-            <span class="h3-4">Crafted by {{item.displayName}}</span>
-            <p>{{item.comments}}</p>
-            <ion-list ng-repeat="option in item.menu">
-              <div class="h3-4">{{option.name}}</div>
-              <span ng-repeat="oitem in option.options | filter:{checked:true}"> {{oitem.name}}</span>
-            </ion-list>
-            
-          </div>
-          <div class="item">
-            <p>Order at {{item.name}}</p>
-            <p>{{item.address}}</p>
-          </div> -->
+            <span class="badge assertive">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
         </div>
-		</div>
+        <div class="item">
+        	<p>Post a drink to the fire page!</p>
+        </div>
+			</div>
   </ion-content>
 </ion-view>
