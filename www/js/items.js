@@ -1,16 +1,25 @@
-bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$ionicSlideBoxDelegate", "TDCardDelegate", "$timeout", 
-function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate, $timeout) {
+bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$ionicSlideBoxDelegate", "TDCardDelegate", "$timeout", "Users",
+function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate, $timeout, Users) {
 
   $scope.cities;
   $scope.items = Items;
   $scope.itemDisplayName = '';
-
+  $scope.users = Users;
   // console.log("idn", $scope.itemDisplayName);
+  var fireFillSet = [];
 
   $http.get('./json/shops.json')
   .then(function(res){
     $scope.cities = res.data;
-    $scope.itemDisplayName = $scope.items[0];
+    $rootScope.warningMessageBool = false;
+    // creating a collection of broken fires to make sure you reset the 
+    // // fireFill to blank every time, in case you have leftover activation.
+    // for (var r=0; r<3; r++) {
+    //   fireFillSet[r] = {
+    //     pressed: false
+    //   }
+    // }
+
   });
 
   $ionicModal.fromTemplateUrl('./templates/modals/cityToShop-md.html', {
@@ -174,10 +183,57 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, TDCardDelegate,
 
   $scope.currentItem = $scope.items[0];
   $scope.fireFill = "";
-  $scope.activateFire = function(index) {
-    $scope.localItems = $scope.items;
-    $scope.items = bubbleSort($scope.items);
 
+  $scope.warningMessage = "";
+  $rootScope.warningMessageBool = false;
+
+  $scope.firePressed = false;
+
+  $scope.activateFire = function(index) {
+    // console.log(fireFillSet, "fireFillSet");
+    if(!$scope.firePressed) {
+      console.log($scope.items.length);
+
+      for (var r=0; r<$scope.items.length; r++) {
+        $scope.items[r].fireFill = "";
+      }
+
+
+
+      $scope.firePressed=true;
+    }
+
+
+    if ($rootScope.authData!=null) {
+      postActivateFire(index);
+      $scope.warningMessage = "";
+      $rootScope.warningMessageBool = false;
+    } else {
+      $scope.warningMessage = "Please log in.";
+      $rootScope.warningMessageBool = true;
+      console.log("wm", $scope.warningMessage);
+    }
+  }
+
+
+
+  
+
+
+  var postActivateFire = function(index) {
+    // console.log("rootScope.userId", $rootScope.authData.uid);
+    $scope.items = bubbleSort($scope.items);
+    $scope.localItems = $scope.items;
+
+    // console.log("")
+
+    // if (fireFillSet[index].pressed==false) {
+    //   fireFillSet[index].pressed=true;
+    //   $scope.localItems[index].fireFill = "";
+    // }
+    
+    
+    
     $scope.currentItem = $scope.items[index];
     if ($scope.fireFill=="") {
       $scope.currentItem.votes += 1;

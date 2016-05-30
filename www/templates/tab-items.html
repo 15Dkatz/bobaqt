@@ -11,7 +11,9 @@
   </ion-nav-title>
   <ion-content>
     <div class="list">
-      
+      <div class="item" ng-show="warningMessageBool">
+        {{warningMessage}}
+      </div>
       <!-- <ion-slide-page ng-repeat="item in items | orderBy : '-votes'" ng-model="selectedItem"> -->
       <div ng-repeat="item in items | orderBy : '-votes' track by $index" ng-model="selectedItem" class="item">
         <div class="list">

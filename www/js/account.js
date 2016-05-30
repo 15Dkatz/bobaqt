@@ -15,6 +15,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", function($s
         console.log("Authenticated successfully with payload:", authData);
         $scope.authData = authData;
         $rootScope.authData = authData;
+        $rootScope.warningMessageBool = false;
         $rootScope.displayName = authData.facebook.displayName;
         $scope.$apply(function() {
           $scope.authedBool = true;
@@ -33,6 +34,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", function($s
         console.log("Authenticated successfully with payload:", authData);
         $scope.authData = authData;
         $rootScope.authData = authData;
+        $rootScope.warningMessageBool = false;
         $rootScope.displayName = authData.google.displayName;
         // $scope.authedBool = true;
         $scope.$apply(function() {

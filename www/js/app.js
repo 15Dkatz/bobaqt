@@ -3,20 +3,17 @@ var bobaqtApp = angular.module('bobaqtApp', ['ionic', 'bobaqtApp.controllers', '
 // add security rules
 bobaqtApp.factory("Items", function($firebaseArray) {
   var itemsRef = new Firebase("https://bobaqt.firebaseio.com/items");
-  // itemsRef.firstItem = function() {
-  //   console.log("first item");
-  // }
   var itemsArray = $firebaseArray(itemsRef);
-
-  // change rootScope
-  // console.log(itemsArray.$keyAt(0));
-
-
   return itemsArray;
 })
 bobaqtApp.factory("Auth", function($firebaseAuth) {
   var usersRef = new Firebase("https://bobaqt.firebaseio.com/users");
   return $firebaseAuth(usersRef);
+})
+bobaqtApp.factory("Users", function($firebaseArray) {
+  var usersRef = new Firebase("https://bobaqt.firebaseio.com/users");
+  var usersArray = $firebaseArray(usersRef);
+  return usersArray;
 })
 // bobaqtApp.factory("Shops", function($http) {
 //   var ulrBase = "../json/shops.json";
