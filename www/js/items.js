@@ -233,8 +233,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
 
 }]);
 
-// fix styling of fire buttons
-// prevent FireVoting and itemAdding if the user is not authenticated
-// fix updating title
-// figure out orderBy function
+
+// check the fire adding of multiple items in same list
+
 // add Generate QR code method, and pick pictures of Boba to select

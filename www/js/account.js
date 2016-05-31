@@ -57,11 +57,9 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
     $window.location.href = '#/tab/account';
   }
 
-  $scope.removeItem = function(index) {
-    console.log("attempting to remove item", index);
-
-    // use the synchronized array $remove function.
-    // $scope.items.$remove...
+  $scope.removeItem = function(item) {
+    console.log("attempting to remove item", item);
+    $scope.items.$remove(item);
   }
 
   $scope.showDelete = false;
