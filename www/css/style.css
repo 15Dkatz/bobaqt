@@ -136,6 +136,10 @@ ion-slides{
 	transform: translateY(-50%);
 }
 
+.fireFamily {
+	font-family: "char-bb";
+}
+
 .fireTitle {
 	font-family: "fauna";
 	font-size: .9rem;
@@ -162,5 +166,9 @@ ion-slides{
 
 .fireballIcon {
 	font-size: 1.4rem;
+}
 
+.minusIcon {
+	font-size: 2rem;
+	color: #AAA;
 }

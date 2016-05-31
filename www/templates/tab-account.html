@@ -13,6 +13,7 @@
 		  	</ion-item>
 			</ion-list>
 		</div>
+
 		<div ng-hide="!authedBool">
 		<!-- <div> -->
 			<div>
@@ -21,14 +22,13 @@
 			<ion-item class="item item-icon-right">
 					<strong><span class="fireTitle">Drinks</span></strong>
 					<!-- change this color -->
-					<!-- why can't I click more than once? -->
-					<i class="icon icon-left ion-minus-circled" ng-click="toggleDelete()"></i>
+					<i class="icon ion-minus-circled minusIcon" ng-click="toggleDelete()"></i>
 				</ion-item>
 			<ion-list show-delete="showDelete">
 				<!-- fix custom filter! -->
 				<ion-item ng-repeat="item in items | filter:displayName | orderBy : '-votes' track by $index" class="item item-icon-right">
 	        <span class="fireTitle">{{item.finalName}}</span>
-	        <span class="badge assertive accountIcon">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
+	        <span class="badge assertive accountIcon fireFamily">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
         	<ion-delete-button class="ion-minus-circled" ng-click="removeItem(item)"></ion-delete-button>
 	      </ion-item>
 	      <ion-item class="item item-icon-right">
@@ -40,3 +40,5 @@
 		</div>
   </ion-content>
 </ion-view>
+
+<!-- figure out drag to delete - a little cleaner -->

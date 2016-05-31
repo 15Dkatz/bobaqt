@@ -188,7 +188,7 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
 
   $scope.activateFire = function(index) {
     // console.log(fireFillSet, "fireFillSet");
-    if(!$scope.firePressed) {
+    if($scope.firePressed==false) {
       console.log($scope.items.length);
 
       for (var r=0; r<$scope.items.length; r++) {
