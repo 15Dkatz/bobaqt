@@ -129,7 +129,6 @@ ion-slides{
 .itemVotes {
 	font-family: "char-bb";
 	font-size: 1.72rem;
-	/*font-weight: bold;*/
 }
 
 .vertCenter {
@@ -155,10 +154,13 @@ ion-slides{
 }
 
 .fireRight {
-	float: right;
-	margin-right: -14%;
+	right: 10%;
+	position: fixed;
+	margin-top: 0%;
+	margin-bottom: 0%;
 }
 
 .fireballIcon {
 	font-size: 1.4rem;
+
 }

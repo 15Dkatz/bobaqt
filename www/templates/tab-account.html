@@ -14,23 +14,29 @@
 			</ion-list>
 		</div>
 		<div ng-hide="!authedBool">
+		<!-- <div> -->
 			<div>
 				<img src="{{profSrc}}" alt="" class="profImg center">
 			</div>
-			<div class="list">
-			<div class="item">
-				<strong><span class="fireTitle">Drinks</span></strong>
-			</div>
-			<!-- fix custom filter! -->
-			<div ng-repeat="item in items | filter:displayName | orderBy : '-votes' track by $index" class="item item-icon-right">
-        <span class="fireTitle">{{item.finalName}}</span>
-        <span class="badge assertive accountIcon">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
-      </div>
-      <div class="item item-icon-right">
-      	<a href="#/tab/items"><i class="icon badge ion-forward">
-      	</i></a>
-      	<p>Post a drink to the fire page!</p>
-      </div>
+			<ion-item class="item item-icon-right">
+					<strong><span class="fireTitle">Drinks</span></strong>
+					<!-- change this color -->
+					<!-- why can't I click more than once? -->
+					<button class="icon icon-left ion-minus-circled button-dark" ng-click="toggleDelete()"></button>
+				</ion-item>
+			<ion-list show-delete="showDelete">
+				<!-- fix custom filter! -->
+				<ion-item ng-repeat="item in items | filter:displayName | orderBy : '-votes' track by $index" class="item item-icon-right">
+	        <span class="fireTitle">{{item.finalName}}</span>
+	        <span class="badge assertive accountIcon">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
+        	<ion-delete-button class="ion-minus-circled" ng-click="removeItem($index)"></ion-delete-button>
+	      </ion-item>
+	      <ion-item class="item item-icon-right">
+	      	<a href="#/tab/items"><i class="icon badge ion-forward">
+	      	</i></a>
+	      	<p>Post a drink to the fire page!</p>
+	      </ion-item>
+			</ion-list>
 		</div>
   </ion-content>
 </ion-view>

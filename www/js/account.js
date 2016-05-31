@@ -1,5 +1,5 @@
-bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items",
-  function($scope, $rootScope, Auth, Items) {
+bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$window",
+  function($scope, $rootScope, Auth, Items, $window) {
   $scope.settings = {
     enableFriends: true
   };
@@ -10,6 +10,8 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items",
   $scope.displayName = "Account";
 
   $scope.items = Items;
+
+  $scope.canSwipe = true;
 
   $scope.fblogin = function() {
     var ref = new Firebase("https://bobaqt.firebaseio.com/");
@@ -27,11 +29,11 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items",
         $scope.$apply(function() {
           $scope.authedBool = true;
         })
-        // $scope.social="facebook";
-        // $scope.profSrc = authData.facebook.profileImageURL;
-        console.log("profSrc", $scope.profSrc);
+        
+        // console.log("profSrc", $scope.profSrc);
       }
     });
+    $window.location.href = '#/tab/account';
   };
 
   $scope.gglogin = function() {
@@ -47,14 +49,25 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items",
         $rootScope.warningMessageBool = false;
         $rootScope.displayName = authData.google.displayName;
         $scope.displayName = authData.google.displayName;
-        // $scope.authedBool = true;
         $scope.$apply(function() {
           $scope.authedBool = true;
-        })
-        // $scope.social="google";
-        
+        })        
       }
     });
+    $window.location.href = '#/tab/account';
+  }
+
+  $scope.removeItem = function(index) {
+    console.log("attempting to remove item", index);
+
+    // use the synchronized array $remove function.
+    // $scope.items.$remove...
+  }
+
+  $scope.showDelete = false;
+
+  $scope.toggleDelete = function() {
+    $scope.showDelete = !$scope.showDelete;
   }
 
 }]);

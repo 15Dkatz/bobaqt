@@ -18,10 +18,10 @@
       </div>
       <div ng-repeat="item in items | filter:searchDrink | orderBy : '-votes' track by $index" ng-model="selectedItem" class="item">
         <div class="list">
-          <div class="item item-icon-right bar-header itemStable">
+          <div class="item item-icon-right itemStable">
             <strong class="fireTitle">{{item.finalName}}</strong>
-            <span class="fireRight">
-              <i class="ion-fireball fireballIcon {{localItems[$index].fireFill}}" ng-click="activateFire($index)"></i>
+            <span class="fireRight" ng-click="activateFire($index)">
+              <i class="ion-fireball fireballIcon {{localItems[$index].fireFill}}" ></i>
               <span class="assertive right itemVotes">{{item.votes}}</span>
             </span> 
           </div>
