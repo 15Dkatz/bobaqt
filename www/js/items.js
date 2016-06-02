@@ -195,17 +195,22 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
         $scope.items[r].fireFill = "";
       }
 
-
-
       $scope.firePressed=true;
     }
 
 
     if ($rootScope.authData!=null) {
+
+      console.log($rootScope.localItems, "localItems");
       postActivateFire(index);
       $scope.warningMessage = "";
       $rootScope.warningMessageBool = false;
-    } else {
+    
+
+
+
+    } 
+    else {
       $scope.warningMessage = "Please sign in to add fire";
       $rootScope.warningMessageBool = true;
       console.log("wm", $scope.warningMessage);
@@ -216,18 +221,43 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
   var postActivateFire = function(index) {
     // console.log("rootScope.userId", $rootScope.authData.uid);
     $scope.items = bubbleSort($scope.items);
-    $scope.localItems = $scope.items;
+
+    // check for resort
+    // for (var r=0; r<$scope.items.length; r++) {
+    //   $rootScope.localItems = {
+    //     $rootScope.localItems[i].finalName: $scope.items[i].finalName
+    //   }
+    // }
+    // $rootScope.localItems = bubbleSort($rootScope.localItems);
 
     $scope.currentItem = $scope.items[index];
-    if ($scope.fireFill=="") {
+
+
+
+    if ($rootScope.localItems[index].fireFill=="") {
+      $rootScope.localItems[index].fireFill = "assertive";
       $scope.currentItem.votes += 1;
-      $scope.fireFill = "assertive";
-      $scope.localItems[index].fireFill = "assertive";
     } else {
+      $rootScope.localItems[index].fireFill = "";
       $scope.currentItem.votes -= 1;
-      $scope.fireFill = "";
-      $scope.localItems[index].fireFill = "";
     }
+
+    userRef = new Firebase("https://bobaqt.firebaseio.com/users/" + $rootScope.uid);
+    userRef.update({
+      items: $rootScope.localItems
+    });
+
+
+    // if $scope.fireFill=="") {
+    //   $scope.currentItem.votes += 1;
+    //   $scope.fireFill = "assertive";
+    //   $scope.localItems[index].fireFill = "assertive";
+    // } else {
+    //   $scope.currentItem.votes -= 1;
+    //   $scope.fireFill = "";
+    //   $scope.localItems[index].fireFill = "";
+    // }
+
     $scope.items.$save($scope.currentItem);
   }
 

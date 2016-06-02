@@ -13,6 +13,8 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
 
   $scope.canSwipe = true;
 
+  //add to Users array in 
+
   $scope.fblogin = function() {
     var ref = new Firebase("https://bobaqt.firebaseio.com/");
     ref.authWithOAuthPopup("facebook", function(error, authData) {
@@ -29,14 +31,19 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
         $scope.$apply(function() {
           $scope.authedBool = true;
         })
-        
-        // console.log("profSrc", $scope.profSrc);
+        $rootScope.uid = authData.facebook.id;
+
+        genUser($rootScope.uid);
       }
     });
     $window.location.href = '#/tab/account';
   };
 
+  
+
   $scope.gglogin = function() {
+
+
     var ref = new Firebase("https://bobaqt.firebaseio.com/");
     ref.authWithOAuthPopup("google", function(error, authData) {
       if (error) {
@@ -51,11 +58,80 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
         $scope.displayName = authData.google.displayName;
         $scope.$apply(function() {
           $scope.authedBool = true;
-        })        
+        })
+        $rootScope.uid = authData.google.id;
+
+
+        
+
+        genUser($rootScope.uid);        
       }
     });
+
+    // creating localUserItems with name of each item and a blank fireFill
+    
+
+    
+
     $window.location.href = '#/tab/account';
   }
+
+  var genUser = function(uid) {
+    // generateTheUser in firebase
+    var userRef = new Firebase("https://bobaqt.firebaseio.com/users");
+
+
+    var localUserItems = [];
+
+    for (var i=0; i<$scope.items.length; i++) {
+      localUserItems[i] = {
+        itemName: $scope.items[i].finalName,
+        fireFill: ""
+      }
+    }
+
+    $rootScope.localItems = localUserItems;
+
+    console.log("localUserItems", $rootScope.localItems);
+
+    
+
+    
+
+
+    if (userRef) {
+      userRef.once("value", function(snapshot) {
+        var hasUser = snapshot.hasChild(uid);
+
+        if (hasUser === false) {
+          userRef.child(uid).set({
+            items: localUserItems
+          })
+        } 
+        else {
+          //check for fireFills on firebase
+          var localFbItems = snapshot.val()[uid].items;
+          console.log("localFbItems", localFbItems);
+
+          // loop madness...
+          for (var c=0; c<localFbItems.length; c++) {
+            if (localFbItems[c].fireFill=="assertive") {
+
+              console.log("fireFilled", localFbItems[c]);
+              var f=0;
+              while (f<$rootScope.localItems.length) {
+                if ($rootScope.localItems[f].itemName==localFbItems[c].itemName) {
+                  $rootScope.localItems[f].fireFill="assertive";
+                }
+                f++;
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
 
   $scope.removeItem = function(item) {
     console.log("attempting to remove item", item);
@@ -69,3 +145,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
   }
 
 }]);
+
+
+
+// the items must only showIfTheCurrentUserId shows
