@@ -146,6 +146,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
 
     $rootScope.warningMessageBool = true;
     $scope.authedBool = false;
+    $scope.displayName = "Account";
   }
 
 
