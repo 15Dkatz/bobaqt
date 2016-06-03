@@ -32,7 +32,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
           $scope.authedBool = true;
         })
         $rootScope.uid = authData.facebook.id;
-
+        $scope.uid = authData.facebook.id;
         genUser($rootScope.uid);
       }
     });
@@ -60,7 +60,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
           $scope.authedBool = true;
         })
         $rootScope.uid = authData.google.id;
-
+        $scope.uid = authData.google.id;
 
         
 
@@ -113,7 +113,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
           var localFbItems = snapshot.val()[uid].items;
           console.log("localFbItems", localFbItems);
 
-          // loop madness...
+          // loop madness... but the magic behind saving likes - conflicted because it works but will probably cause slow run times if app gets very large
           for (var c=0; c<localFbItems.length; c++) {
             if (localFbItems[c].fireFill=="assertive") {
 

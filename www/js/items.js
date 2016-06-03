@@ -142,10 +142,21 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
     if(item.finalName==null) {
       item.finalName = "Nameless drink..."
     }
+    if($rootScope.uid==null) {
+      item.uid = "";
+    } else {
+      item.uid = $rootScope.uid;
+    }
+
+
     item.fireFill = "";
     if (item) {
       item.votes = 0;
       $scope.items.$add(item);
+      $rootScope.localItems.push({
+        item: item.finalName,
+        fireFill: ""
+      })
     }
     closeAllModals();
   };

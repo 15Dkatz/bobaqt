@@ -20,13 +20,13 @@
 				<img src="{{profSrc}}" alt="" class="profImg center">
 			</div>
 			<ion-item class="item item-icon-right">
-					<strong><span class="fireTitle">Drinks</span></strong>
+					<strong><span class="fireTitle">My drinks</span></strong>
 					<!-- change this color -->
 					<i class="icon ion-minus-circled minusIcon" ng-click="toggleDelete()"></i>
 				</ion-item>
 			<ion-list show-delete="showDelete">
 				<!-- fix custom filter! -->
-				<ion-item ng-repeat="item in items | filter:displayName | orderBy : '-votes' track by $index" class="item item-icon-right">
+				<ion-item ng-repeat="item in items | filter:uid | filter:displayName | orderBy : '-votes' track by $index" class="item item-icon-right">
 	        <span class="fireTitle">{{item.finalName}}</span>
 	        <span class="badge assertive accountIcon fireFamily">{{item.votes}}&nbsp;<i class="ion-fireball"></i></span>
         	<ion-delete-button class="ion-minus-circled" ng-click="removeItem(item)"></ion-delete-button>
