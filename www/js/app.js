@@ -15,28 +15,7 @@ bobaqtApp.factory("Users", function($firebaseArray) {
   var usersArray = $firebaseArray(usersRef);
   return usersArray;
 })
-// bobaqtApp.factory("Shops", function($http) {
-//   var ulrBase = "../json/shops.json";
-//   var shops = {};
 
-//   this.getShops = function() {
-//     $http.get("../json/shops.json")
-//     .then(function(res) {
-//       shops = res.data;
-//       return shops;
-//     })
-//   }
-
-//   return shops;
-// })
-
-bobaqtApp.filter('nameMatch', function(){
-  return function(input, name1, name2){
-    if (name1==name2) {
-      return input;
-    }
-  }
-})
 
 bobaqtApp.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

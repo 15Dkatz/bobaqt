@@ -1,10 +1,9 @@
-bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$timeout", "Users",
-function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users) {
+bobaqtApp.controller('ItemsCtrl', ["$scope", "$rootScope", "$http", "$filter", "$ionicModal", "Items", "$timeout",
+function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout) {
 
   $scope.cities;
   $scope.items = Items;
   $scope.itemDisplayName = '';
-  $scope.users = Users;
   var fireFillSet = [];
 
   // ideally this would access on online json database that I could update myself in order to prevent having to update every time in order to add more stores
@@ -13,11 +12,21 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
   // but after every change you need to change this link
   // $http.get('http://davidtkatz.com/js/shops.json')
   // <script src="https://gist.github.com/15Dkatz/9ddca91496f8e79a0bb5f704f92cea71.js"></script>
-  $http.get('./json/shops.json')
-  .then(function(res){
-    $scope.cities = res.data;
-    $rootScope.warningMessageBool = false;
-  });
+  
+  //uncomment to reset data based on local shops.json
+  // $http.get('./json/shops.json')
+  // // .then(function(res){
+  // //   $scope.cities = res.data;
+  // //   $rootScope.warningMessageBool = false;
+
+  // //   var shopsRef = new Firebase("https://bobaqt.firebaseio.com/shops");
+
+
+  // //   shopsRef.set({
+  // //     shops: $scope.cities
+  // //   })
+
+  // });
 
   $ionicModal.fromTemplateUrl('./templates/modals/cityToShop-md.html', {
       scope: $scope,
@@ -65,7 +74,26 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
 
   $scope.setItem = {};
 
+  $scope.warningMessageBool = false;
+  
   $scope.openModal = function(option, selectedCity, selectedShop) {
+    var shopsArray;
+
+    var shopsRef = new Firebase("https://bobaqt.firebaseio.com/shops");
+
+    shopsRef.once("value", function(snapshot) {
+      shopsArray = snapshot.val()["shops"];
+      // return shopsArray;
+      console.log(shopsArray, "shops");
+      $scope.cities = shopsArray;
+
+      if ($scope.cities==undefined) {
+        $scope.message = "Connection appears offline";
+        $scope.warningMessage = true;
+        console.log("connection appears offline");
+      }
+    })
+     
     if (option=='city') {
       $scope.modalCity.show();
     }
