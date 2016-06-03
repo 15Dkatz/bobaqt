@@ -1,8 +1,10 @@
 <ion-modal-view>
    <ion-header-bar class="bar-calm">
-      <h1 class = "title bar-calm">{{selectedShop.name}}</h1>
       <button class = "button button-icon icon-left ion-ios-close"
          ng-click = "closeModal('item')"></button>
+      <h1 class = "title bar-calm">{{selectedShop.name}}</h1>
+      <button class="button button-icon icon-right ion-forward" ng-click="openModal('setItem', selectedShop)">
+      </button>
    </ion-header-bar>
 	
    <ion-content>
@@ -32,10 +34,9 @@
    </ion-content>
    <!-- <div class="button button-block button-balanced item item-divider ion-forward submitBtn" ng-click="testButton(selectedShop.menu)">
     </div> -->
-    <div class="submitBtn">
+    <!-- <div class="submitBtn">
       <a class="content balanced">
-        <!-- <i class="ion-forward" ng-click="testButton(selectedShop)"> </i> -->
-        <i class="ion-forward" ng-click="openModal('setItem', selectedShop)"> </i>
+        <i class="ion-forward" > </i>
       </a>
-    </div>
+    </div> -->
 </ion-modal-view>

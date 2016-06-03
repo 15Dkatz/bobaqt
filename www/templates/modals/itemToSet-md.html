@@ -1,9 +1,11 @@
 <ion-modal-view>
    <ion-header-bar class="bar-calm">
-      <h1 class = "title bar-calm">{{scWithItems.name}}</h1>
       <button class = "button button-icon icon-left ion-ios-close"
          ng-click = "closeModal('setItem')">
          </button>
+      <h1 class = "title bar-calm">{{scWithItems.name}}</h1>
+      <button class="button button-icon icon-right ion-forward" ng-click="addItem(scWithItems)">
+      </button>
    </ion-header-bar>
 	
    <ion-content>
@@ -29,10 +31,10 @@
     </div>
     
    </ion-content>
-    <div class="submitBtn">
+    <!-- <div class="submitBtn">
       <a class="content balanced">
-       <!--  <i class="ion-forward" ng-click="testButton(scWithItems)"> </i> -->
+        <i class="ion-forward" ng-click="testButton(scWithItems)"> </i>
         <i class="ion-forward" ng-click="addItem(scWithItems)"> </i>
       </a>
-    </div>
+    </div> -->
 </ion-modal-view>

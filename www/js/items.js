@@ -153,10 +153,12 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
     if (item) {
       item.votes = 0;
       $scope.items.$add(item);
-      $rootScope.localItems.push({
-        item: item.finalName,
-        fireFill: ""
-      })
+      if ($rootScope.localItems) {
+        $rootScope.localItems.push({
+          item: item.finalName,
+          fireFill: ""
+        })
+      }
     }
     closeAllModals();
   };
@@ -201,25 +203,18 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
     // console.log(fireFillSet, "fireFillSet");
     if($scope.firePressed==false) {
       console.log($scope.items.length);
-
       for (var r=0; r<$scope.items.length; r++) {
         $scope.items[r].fireFill = "";
       }
-
       $scope.firePressed=true;
     }
 
 
     if ($rootScope.authData!=null) {
-
       console.log($rootScope.localItems, "localItems");
       postActivateFire(index);
       $scope.warningMessage = "";
       $rootScope.warningMessageBool = false;
-    
-
-
-
     } 
     else {
       $scope.warningMessage = "Please sign in to add fire";
@@ -230,20 +225,8 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
 
 
   var postActivateFire = function(index) {
-    // console.log("rootScope.userId", $rootScope.authData.uid);
     $scope.items = bubbleSort($scope.items);
-
-    // check for resort
-    // for (var r=0; r<$scope.items.length; r++) {
-    //   $rootScope.localItems = {
-    //     $rootScope.localItems[i].finalName: $scope.items[i].finalName
-    //   }
-    // }
-    // $rootScope.localItems = bubbleSort($rootScope.localItems);
-
     $scope.currentItem = $scope.items[index];
-
-
 
     if ($rootScope.localItems[index].fireFill=="") {
       $rootScope.localItems[index].fireFill = "assertive";
@@ -258,23 +241,10 @@ function($scope, $rootScope, $http, $filter, $ionicModal, Items, $timeout, Users
       items: $rootScope.localItems
     });
 
-
-    // if $scope.fireFill=="") {
-    //   $scope.currentItem.votes += 1;
-    //   $scope.fireFill = "assertive";
-    //   $scope.localItems[index].fireFill = "assertive";
-    // } else {
-    //   $scope.currentItem.votes -= 1;
-    //   $scope.fireFill = "";
-    //   $scope.localItems[index].fireFill = "";
-    // }
-
     $scope.items.$save($scope.currentItem);
   }
 
 }]);
 
-
-// check the fire adding of multiple items in same list
 
 // add Generate QR code method, and pick pictures of Boba to select
