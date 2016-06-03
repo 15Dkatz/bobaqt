@@ -17,6 +17,7 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
 
   $scope.fblogin = function() {
     var ref = new Firebase("https://bobaqt.firebaseio.com/");
+    ref.unauth();
     ref.authWithOAuthPopup("facebook", function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);
@@ -30,9 +31,10 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
         $scope.displayName = authData.facebook.displayName;
         $scope.$apply(function() {
           $scope.authedBool = true;
+          $rootScope.uid = authData.facebook.id;
+          $scope.uid = authData.facebook.id;
         })
-        $rootScope.uid = authData.facebook.id;
-        $scope.uid = authData.facebook.id;
+        
         genUser($rootScope.uid);
       }
     });
@@ -42,7 +44,6 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
   
 
   $scope.gglogin = function() {
-
 
     var ref = new Firebase("https://bobaqt.firebaseio.com/");
     ref.authWithOAuthPopup("google", function(error, authData) {
@@ -58,12 +59,9 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
         $scope.displayName = authData.google.displayName;
         $scope.$apply(function() {
           $scope.authedBool = true;
+          $rootScope.uid = authData.google.id;
+          $scope.uid = authData.google.id;
         })
-        $rootScope.uid = authData.google.id;
-        $scope.uid = authData.google.id;
-
-        
-
         genUser($rootScope.uid);        
       }
     });
@@ -80,7 +78,6 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
     // generateTheUser in firebase
     var userRef = new Firebase("https://bobaqt.firebaseio.com/users");
 
-
     var localUserItems = [];
 
     for (var i=0; i<$scope.items.length; i++) {
@@ -93,11 +90,6 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
     $rootScope.localItems = localUserItems;
 
     console.log("localUserItems", $rootScope.localItems);
-
-    
-
-    
-
 
     if (userRef) {
       userRef.once("value", function(snapshot) {
@@ -143,6 +135,19 @@ bobaqtApp.controller('AccountCtrl', ["$scope", "$rootScope", "Auth", "Items", "$
   $scope.toggleDelete = function() {
     $scope.showDelete = !$scope.showDelete;
   }
+
+  $scope.logout = function() {
+    console.log("attempting logout");
+
+    var ref = new Firebase("https://bobaqt.firebaseio.com/");
+    ref.unauth();
+
+    $window.location.href = '#/tab/account';
+
+    $rootScope.warningMessageBool = true;
+    $scope.authedBool = false;
+  }
+
 
 }]);
 

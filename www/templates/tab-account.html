@@ -1,9 +1,16 @@
 <ion-view view-title="Account">
+	<ion-nav-bar class="bar-calm">
+      <ion-nav-buttons side="right">
+        <button class="button button-icon" ng-click="logout()" ng-hide="!authedBool" ng-show="authedBool">
+        	Logout
+        </button>
+      </ion-nav-buttons>
+  </ion-nav-bar>
 	<ion-nav-title class="fireTitle">
 		<strong>{{displayName}}</strong>
 	</ion-nav-title>
   <ion-content class="itemStable">
-  	<div class="card" ng-hide="authedBool">
+  	<div class="card" ng-hide="authedBool" ng-show="!authedBool">
 	    <ion-list class="list">
 			 	<ion-item class="item" ng-click="gglogin()">
 		  		Sign In with Google
@@ -14,7 +21,7 @@
 			</ion-list>
 		</div>
 
-		<div ng-hide="!authedBool">
+		<div ng-hide="!authedBool" ng-show="authedBool">
 		<!-- <div> -->
 			<div>
 				<img src="{{profSrc}}" alt="" class="profImg center">
